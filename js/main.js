@@ -1,0 +1,457 @@
+/* ============================================================
+   METZGEREI HINDERER – main.js
+   ============================================================ */
+
+/* ── Year ─────────────────────────────────────────────────── */
+document.getElementById('year').textContent = new Date().getFullYear();
+
+/* ── GSAP Registration ────────────────────────────────────── */
+if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+  initGSAP();
+} else {
+  initFallbackAnimations();
+}
+
+/* ============================================================
+   GSAP ANIMATIONS
+   ============================================================ */
+function initGSAP() {
+
+  /* ── Hero entrance ────────────────────────────────────── */
+  const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+  heroTl
+    .from('.hero__bg', { scale: 1.1, duration: 1.8 }, 0)
+    .to('.hero__eyebrow', { opacity: 1, y: 0, duration: .9 }, .3)
+    .from('.hero__title-line:nth-child(1)', { y: 80, opacity: 0, duration: 1 }, .5)
+    .from('.hero__title-line:nth-child(2)', { y: 80, opacity: 0, duration: 1 }, .7)
+    .to('.hero__subtitle', { opacity: 1, y: 0, duration: .8 }, .9)
+    .to('.hero__ctas', { opacity: 1, y: 0, duration: .8 }, 1.05)
+    .to('.hero__badge--1', { opacity: 1, duration: .6 }, 1.3)
+    .to('.hero__badge--2', { opacity: 1, duration: .6 }, 1.5);
+
+  /* ── Hero parallax ────────────────────────────────────── */
+  gsap.to('.hero__bg', {
+    yPercent: 30,
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '.hero',
+      start: 'top top',
+      end: 'bottom top',
+      scrub: true
+    }
+  });
+
+  /* ── Stat counters ────────────────────────────────────── */
+  document.querySelectorAll('.stat-card__number').forEach(el => {
+    const target = parseInt(el.dataset.count, 10);
+    gsap.from(el, {
+      textContent: 0,
+      duration: 2,
+      ease: 'power2.out',
+      snap: { textContent: 1 },
+      scrollTrigger: {
+        trigger: el,
+        start: 'top 85%',
+        once: true
+      },
+      onUpdate() { el.textContent = Math.round(Number(this.targets()[0].textContent)); }
+    });
+  });
+
+  /* ── Scroll-reveal (all [data-animate]) ─────────────── */
+  gsap.utils.toArray('[data-animate]').forEach(el => {
+    const delay = parseFloat(el.dataset.delay || 0);
+    const dir   = el.dataset.animate;
+    const from  = { opacity: 0, duration: .9, delay, ease: 'power3.out' };
+
+    if (dir === 'fade-up')    from.y = 50;
+    if (dir === 'fade-right') from.x = -50;
+    if (dir === 'fade-left')  from.x = 50;
+
+    gsap.from(el, {
+      ...from,
+      scrollTrigger: {
+        trigger: el,
+        start: 'top 88%',
+        once: true,
+        onEnter: () => el.classList.add('visible')
+      }
+    });
+
+    // override CSS opacity/transform so GSAP takes over
+    el.style.opacity = '';
+    el.style.transform = '';
+  });
+
+  /* ── Stagger product cards ───────────────────────────── */
+  gsap.from('.produkt-card', {
+    y: 60, opacity: 0,
+    duration: .85,
+    stagger: .12,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '.produkte__grid',
+      start: 'top 85%',
+      once: true
+    }
+  });
+
+  /* ── Stagger angebot cards ───────────────────────────── */
+  gsap.from('.angebot-card', {
+    y: 60, opacity: 0,
+    duration: .85,
+    stagger: .12,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '.aktuelles__grid',
+      start: 'top 85%',
+      once: true
+    }
+  });
+
+  /* ── Timeline items ──────────────────────────────────── */
+  gsap.from('.timeline-item', {
+    x: -30, opacity: 0,
+    duration: .7,
+    stagger: .2,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '.ueber-uns__timeline',
+      start: 'top 85%',
+      once: true
+    }
+  });
+
+  /* ── Quality badges in intro ─────────────────────────── */
+  gsap.from('.quality-badge', {
+    scale: .8, opacity: 0,
+    duration: .5,
+    stagger: .08,
+    ease: 'back.out(1.7)',
+    scrollTrigger: {
+      trigger: '.intro-statement__badges',
+      start: 'top 90%',
+      once: true
+    }
+  });
+
+  /* ── Partyservice features ───────────────────────────── */
+  gsap.from('.ps-feature', {
+    x: -30, opacity: 0,
+    duration: .7,
+    stagger: .15,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '.partyservice__info',
+      start: 'top 80%',
+      once: true
+    }
+  });
+
+  /* ── Section big title character reveal ─────────────── */
+  if (typeof SplitText !== 'undefined') {
+    document.querySelectorAll('.section-title').forEach(el => {
+      const split = new SplitText(el, { type: 'chars,words' });
+      gsap.from(split.chars, {
+        opacity: 0,
+        y: 30,
+        rotateX: -40,
+        stagger: .02,
+        duration: .6,
+        ease: 'power3.out',
+        scrollTrigger: { trigger: el, start: 'top 90%', once: true }
+      });
+    });
+  }
+
+  /* ── Hours rows ──────────────────────────────────────── */
+  gsap.from('.hours-row', {
+    x: -20, opacity: 0,
+    duration: .5,
+    stagger: .07,
+    ease: 'power2.out',
+    scrollTrigger: {
+      trigger: '.hours-grid',
+      start: 'top 85%',
+      once: true
+    }
+  });
+
+  /* ── Value items ─────────────────────────────────────── */
+  gsap.from('.value-item', {
+    scale: .9, opacity: 0,
+    duration: .6,
+    stagger: .1,
+    ease: 'back.out(1.5)',
+    scrollTrigger: {
+      trigger: '.ueber-uns__values',
+      start: 'top 85%',
+      once: true
+    }
+  });
+
+  /* ── Generation badge spin-in ────────────────────────── */
+  gsap.from('.gen-badge', {
+    scale: 0, rotation: -180,
+    duration: 1,
+    ease: 'back.out(2)',
+    scrollTrigger: {
+      trigger: '.gen-badge',
+      start: 'top 90%',
+      once: true
+    }
+  });
+
+  /* ── Form card slide up ──────────────────────────────── */
+  gsap.from('.form-card', {
+    y: 60, opacity: 0,
+    duration: 1,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '.form-card',
+      start: 'top 85%',
+      once: true
+    }
+  });
+
+  /* ── Ticker speed on scroll ──────────────────────────── */
+  const track = document.querySelector('.ticker__track');
+  if (track) {
+    ScrollTrigger.create({
+      trigger: '.ticker',
+      start: 'top bottom',
+      end: 'bottom top',
+      onUpdate(self) {
+        const speed = 1 + Math.abs(self.getVelocity()) / 1500;
+        gsap.to(track, { animationDuration: `${30 / Math.min(speed, 4)}s`, overwrite: 'auto' });
+      }
+    });
+  }
+}
+
+/* ============================================================
+   FALLBACK (no GSAP)
+   ============================================================ */
+function initFallbackAnimations() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+  animateCounters();
+}
+
+function animateCounters() {
+  const counters = document.querySelectorAll('.stat-card__number');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      const target = parseInt(el.dataset.count, 10);
+      let current = 0;
+      const step = Math.ceil(target / 60);
+      const tick = setInterval(() => {
+        current = Math.min(current + step, target);
+        el.textContent = current;
+        if (current >= target) clearInterval(tick);
+      }, 25);
+      obs.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+  counters.forEach(el => obs.observe(el));
+}
+
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+const nav    = document.getElementById('main-nav');
+const toggle = document.getElementById('nav-toggle');
+const menu   = document.getElementById('nav-menu');
+
+/* Scroll state */
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('nav--scrolled', window.scrollY > 60);
+}, { passive: true });
+
+/* Mobile toggle */
+toggle.addEventListener('click', () => {
+  const open = toggle.classList.toggle('open');
+  menu.classList.toggle('open', open);
+  toggle.setAttribute('aria-expanded', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+});
+
+/* Close on link click */
+menu.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    toggle.classList.remove('open');
+    menu.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  });
+});
+
+/* Active link on scroll */
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav__link');
+const activateLink = () => {
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 120) current = s.id;
+  });
+  navLinks.forEach(a => {
+    a.classList.toggle('nav__link--active', a.getAttribute('href') === `#${current}`);
+  });
+};
+window.addEventListener('scroll', activateLink, { passive: true });
+
+
+/* ============================================================
+   PROGRESS BAR
+   ============================================================ */
+const fill = document.getElementById('progress-fill');
+window.addEventListener('scroll', () => {
+  const total = document.documentElement.scrollHeight - window.innerHeight;
+  fill.style.width = `${(window.scrollY / total) * 100}%`;
+}, { passive: true });
+
+
+/* ============================================================
+   BACK TO TOP
+   ============================================================ */
+const btt = document.getElementById('back-to-top');
+window.addEventListener('scroll', () => {
+  btt.classList.toggle('visible', window.scrollY > 500);
+}, { passive: true });
+btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+
+/* ============================================================
+   SMOOTH SCROLL (anchor links)
+   ============================================================ */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const id = a.getAttribute('href');
+    if (id === '#') return;
+    const target = document.querySelector(id);
+    if (!target) return;
+    e.preventDefault();
+    const offset = 72; // nav height
+    const top = target.getBoundingClientRect().top + window.scrollY - offset;
+    window.scrollTo({ top, behavior: 'smooth' });
+  });
+});
+
+
+/* ============================================================
+   PARTYSERVICE FORM VALIDATION
+   ============================================================ */
+const form    = document.getElementById('partyservice-form');
+const success = document.getElementById('form-success');
+
+if (form) {
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    if (validateForm()) submitForm();
+  });
+
+  // Live validation
+  form.querySelectorAll('input, select, textarea').forEach(field => {
+    field.addEventListener('blur', () => validateField(field));
+    field.addEventListener('input', () => {
+      if (field.classList.contains('error')) validateField(field);
+    });
+  });
+}
+
+function validateField(field) {
+  const group = field.closest('.form-group');
+  if (!group) return true;
+  const errorEl = group.querySelector('.form-error');
+  let msg = '';
+
+  if (field.type === 'checkbox') {
+    if (!field.checked) msg = 'Bitte stimmen Sie zu.';
+  } else if (field.required && !field.value.trim()) {
+    msg = 'Dieses Feld ist erforderlich.';
+  } else if (field.type === 'email' && field.value && !isValidEmail(field.value)) {
+    msg = 'Bitte geben Sie eine gültige E-Mail-Adresse ein.';
+  } else if (field.type === 'tel' && field.value && !/^[\d\s\+\-\(\)]{6,20}$/.test(field.value)) {
+    msg = 'Bitte geben Sie eine gültige Telefonnummer ein.';
+  } else if (field.type === 'date' && field.required && field.value) {
+    const chosen = new Date(field.value);
+    if (chosen < new Date()) msg = 'Das Datum muss in der Zukunft liegen.';
+  } else if (field.type === 'number' && field.value && parseInt(field.value) < 1) {
+    msg = 'Mindestens 1 Person.';
+  }
+
+  if (errorEl) errorEl.textContent = msg;
+  field.classList.toggle('error', !!msg);
+  return !msg;
+}
+
+function validateForm() {
+  let valid = true;
+  form.querySelectorAll('input[required], select[required], textarea[required]').forEach(f => {
+    if (!validateField(f)) valid = false;
+  });
+  const consent = form.querySelector('#f-consent');
+  if (consent && !validateField(consent)) valid = false;
+  return valid;
+}
+
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function submitForm() {
+  const btn = form.querySelector('[type="submit"]');
+  const btnText = btn.querySelector('.btn__text');
+  btnText.textContent = 'Wird gesendet…';
+  btn.disabled = true;
+
+  // Simulate send (replace with real endpoint / EmailJS / Formspree)
+  setTimeout(() => {
+    form.style.display = 'none';
+    success.hidden = false;
+    if (typeof gsap !== 'undefined') {
+      gsap.from(success, { opacity: 0, scale: .9, duration: .5, ease: 'back.out(1.5)' });
+    }
+  }, 1200);
+}
+
+
+/* ============================================================
+   IMAGE PLACEHOLDER FALLBACK
+   Ensure placeholder text shows when img fails
+   ============================================================ */
+document.querySelectorAll('.produkt-card__img').forEach(img => {
+  img.addEventListener('error', () => {
+    const wrap = img.closest('.produkt-card__img-wrap');
+    if (wrap) wrap.classList.add('img-error');
+  });
+});
+
+
+/* ============================================================
+   HOVER TILT on stat cards (subtle)
+   ============================================================ */
+document.querySelectorAll('.stat-card').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const rect = card.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width - .5) * 8;
+    const y = ((e.clientY - rect.top) / rect.height - .5) * -8;
+    card.style.transform = `perspective(600px) rotateY(${x}deg) rotateX(${y}deg) translateY(-4px)`;
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+  });
+});
