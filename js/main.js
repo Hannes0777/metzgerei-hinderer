@@ -46,69 +46,55 @@ function initGSAP() {
   /* ── Stat counters ────────────────────────────────────── */
   document.querySelectorAll('.stat-card__number').forEach(el => {
     const target = parseInt(el.dataset.count, 10);
-    gsap.from(el, {
-      textContent: 0,
-      duration: 2,
-      ease: 'power2.out',
-      snap: { textContent: 1 },
-      scrollTrigger: {
-        trigger: el,
-        start: 'top 85%',
-        once: true
-      },
-      onUpdate() { el.textContent = Math.round(Number(this.targets()[0].textContent)); }
+    el.textContent = '0';
+    ScrollTrigger.create({
+      trigger: el,
+      start: 'top 85%',
+      once: true,
+      onEnter() {
+        const obj = { val: 0 };
+        gsap.to(obj, {
+          val: target,
+          duration: 2,
+          ease: 'power2.out',
+          onUpdate() { el.textContent = Math.round(obj.val); }
+        });
+      }
     });
   });
 
   /* ── Scroll-reveal (all [data-animate]) ─────────────── */
+  // Group elements by their parent so we can stagger siblings
+  const animGroups = {};
+  gsap.utils.toArray('[data-animate]').forEach(el => {
+    const parentKey = el.parentElement ? el.parentElement.className : 'root';
+    if (!animGroups[parentKey]) animGroups[parentKey] = [];
+    animGroups[parentKey].push(el);
+  });
+
   gsap.utils.toArray('[data-animate]').forEach(el => {
     const delay = parseFloat(el.dataset.delay || 0);
     const dir   = el.dataset.animate;
-    const from  = { opacity: 0, duration: .9, delay, ease: 'power3.out' };
+    const init  = { opacity: 0 };
+    if (dir === 'fade-up')    init.y = 50;
+    if (dir === 'fade-right') init.x = -50;
+    if (dir === 'fade-left')  init.x = 50;
 
-    if (dir === 'fade-up')    from.y = 50;
-    if (dir === 'fade-right') from.x = -50;
-    if (dir === 'fade-left')  from.x = 50;
+    // gsap.set overrides the CSS opacity:0 rule with an inline style
+    gsap.set(el, init);
 
-    gsap.from(el, {
-      ...from,
+    // gsap.to animates to fully visible
+    gsap.to(el, {
+      opacity: 1, x: 0, y: 0,
+      duration: .9,
+      delay,
+      ease: 'power3.out',
       scrollTrigger: {
         trigger: el,
         start: 'top 88%',
-        once: true,
-        onEnter: () => el.classList.add('visible')
+        once: true
       }
     });
-
-    // override CSS opacity/transform so GSAP takes over
-    el.style.opacity = '';
-    el.style.transform = '';
-  });
-
-  /* ── Stagger product cards ───────────────────────────── */
-  gsap.from('.produkt-card', {
-    y: 60, opacity: 0,
-    duration: .85,
-    stagger: .12,
-    ease: 'power3.out',
-    scrollTrigger: {
-      trigger: '.produkte__grid',
-      start: 'top 85%',
-      once: true
-    }
-  });
-
-  /* ── Stagger angebot cards ───────────────────────────── */
-  gsap.from('.angebot-card', {
-    y: 60, opacity: 0,
-    duration: .85,
-    stagger: .12,
-    ease: 'power3.out',
-    scrollTrigger: {
-      trigger: '.aktuelles__grid',
-      start: 'top 85%',
-      once: true
-    }
   });
 
   /* ── Timeline items ──────────────────────────────────── */
