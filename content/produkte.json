@@ -1,0 +1,39 @@
+{
+  "kategorien": [
+    {
+      "bild": "https://image.jimcdn.com/app/cms/image/transf/none/path/s932c40ad2e5d9cb2/image/ib6de505324ec5e38/version/1499417190/image.png",
+      "tag": "Kategorie 01",
+      "titel": "Frischfleisch",
+      "text": "Rindfleisch, Schweinefleisch, Geflügel und Lammfleisch – alles frisch vom regionalen Erzeuger, täglich vorbereitet in unserem Betrieb.",
+      "punkte": ["Rind aus der Region", "Schwein vom Bauernhof", "Geflügel & Lamm", "Tagesfrische Zuschnitte"]
+    },
+    {
+      "bild": "https://image.jimcdn.com/app/cms/image/transf/dimension=368x10000:format=png/path/s932c40ad2e5d9cb2/image/idb1b63bfbab717c1/version/1526479583/image.png",
+      "tag": "Kategorie 02",
+      "titel": "Wurstwaren",
+      "text": "Hauseigene Rezepturen, überliefert über Generationen. Von der klassischen Bratwurst bis zur feinen Leberwurst.",
+      "punkte": ["Hinderers Lieblinge", "Fleischkäsvariationen", "Hausmacherwurst", "Spezialitäten aus dem Rauch"]
+    },
+    {
+      "bild": "https://image.jimcdn.com/app/cms/image/transf/dimension=298x10000:format=png/path/s932c40ad2e5d9cb2/image/ib9e6fab7abc6ccee/version/1498038044/image.png",
+      "tag": "Kategorie 03",
+      "titel": "Feinkost",
+      "text": "Fisch, Käse, frische Salate und Gourmetprodukte – eine erlesene Auswahl für besondere Genussmomente.",
+      "punkte": ["Frische Salate", "Käsespezialitäten", "Fischdelikatessen", "Dosenspezialitäten"]
+    },
+    {
+      "bild": "https://image.jimcdn.com/app/cms/image/transf/dimension=298x10000:format=png/path/s932c40ad2e5d9cb2/image/i3177c2cb5fa92551/version/1498046129/image.png",
+      "tag": "Kategorie 04",
+      "titel": "Mittagstisch & Tagesessen",
+      "text": "Täglich frisch gekochte Gerichte – telefonisch vorbestellbar. Warm, hausgemacht und herzhaft.",
+      "punkte": ["Wechselnde Tagesgerichte", "Telefonisch vorbestellen", "Wochenangebote", "Saisonale Spezialitäten"]
+    },
+    {
+      "bild": "https://image.jimcdn.com/app/cms/image/transf/dimension=298x10000:format=png/path/s932c40ad2e5d9cb2/image/iee7476bc991f949d/version/1498048216/image.png",
+      "tag": "Kategorie 05",
+      "titel": "Snacks & Imbiss",
+      "text": "Frische hausgemachte Snacks für den kleinen und großen Hunger – ideal für die Mittagspause oder zwischendurch.",
+      "punkte": ["Frische Wurstsemmeln", "Fleischkäse-Variationen", "Belegte Brote", "Hausgemachte Salate"]
+    }
+  ]
+}

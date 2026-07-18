@@ -1,0 +1,24 @@
+{
+  "name": "Werner Hinderer",
+  "zusatz": "Metzgerei & Partyservice",
+  "strasse": "Welzheimer Straße 2",
+  "ort": "73635 Rudersberg",
+  "telefon": "(07183) 6103",
+  "telefon_href": "+4971836103",
+  "email": "info@hinderer.de",
+  "social": [
+    { "plattform": "Facebook", "url": "https://www.facebook.com" },
+    { "plattform": "Instagram", "url": "https://www.instagram.com" }
+  ],
+  "map_embed_url": "https://www.openstreetmap.org/export/embed.html?bbox=9.5210%2C48.6760%2C9.5310%2C48.6810&layer=mapnik&marker=48.6785%2C9.5260",
+  "map_link_url": "https://maps.google.com/?q=Welzheimer+Straße+2+73635+Rudersberg",
+  "oeffnungszeiten": [
+    { "tag": "Montag", "zeit": "07:30 – 18:00 Uhr" },
+    { "tag": "Dienstag", "zeit": "07:30 – 18:00 Uhr" },
+    { "tag": "Mittwoch", "zeit": "07:30 – 13:00 Uhr" },
+    { "tag": "Donnerstag", "zeit": "07:30 – 18:00 Uhr" },
+    { "tag": "Freitag", "zeit": "07:30 – 18:00 Uhr" },
+    { "tag": "Samstag", "zeit": "07:00 – 12:30 Uhr" },
+    { "tag": "Sonntag", "zeit": "Geschlossen" }
+  ]
+}

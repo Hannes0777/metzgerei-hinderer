@@ -1,0 +1,36 @@
+{
+  "absatz1": "Die Metzgerei Hinderer blickt auf über **200 Jahre Geschichte** zurück und ist heute in der 7. Generation ein fester Bestandteil des Lebens in Rudersberg. Dorothe und Werner Hinderer führen den Betrieb mit dem gleichen Engagement wie alle ihre Vorfahren.",
+  "absatz2": "Unser Motto *\"Altes Bewahren, Neues Erfahren\"* bringt es auf den Punkt: Wir kombinieren überlieferte Handwerkskunst mit modernster Technik und stetiger Weiterentwicklung. Das Ergebnis sind Produkte, die schmecken wie früher – aber mit der Qualität von heute.",
+  "absatz3": "Alle unsere Fleisch- und Wurstwaren entstehen in unserem eigenen Betrieb in Rudersberg. Wir kennen unsere Lieferanten persönlich und legen größten Wert auf regionale Herkunft und artgerechte Tierhaltung.",
+  "werte": [
+    {
+      "icon": "⚒",
+      "titel": "Handwerk",
+      "text": "Jedes Produkt entsteht in traditioneller Handarbeit nach überlieferten Rezepten."
+    },
+    {
+      "icon": "📍",
+      "titel": "Regional",
+      "text": "Wir beziehen unser Fleisch ausschließlich von regionalen Betrieben aus der Umgebung."
+    },
+    {
+      "icon": "♻",
+      "titel": "Nachhaltig",
+      "text": "Verantwortungsvoller Umgang mit Ressourcen und Respekt gegenüber Mensch und Tier."
+    }
+  ],
+  "zeitleiste": [
+    {
+      "jahr": "~1800er",
+      "text": "Gründung der Metzgerei Hinderer in Rudersberg"
+    },
+    {
+      "jahr": "Über Generationen",
+      "text": "Überlieferung von Wissen und Rezepten über 7 Generationen"
+    },
+    {
+      "jahr": "Heute",
+      "text": "Dorothe & Werner Hinderer führen den Betrieb mit modernster Technik und alter Handwerkskunst"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "merkmale": [
+    {
+      "icon": "🍖",
+      "titel": "Buffets & Grillplatten",
+      "text": "Reichhaltige Buffets mit hausgemachten Spezialitäten, Grillplatten und Aufschnitt – abgestimmt auf Ihre Wünsche."
+    },
+    {
+      "icon": "🎉",
+      "titel": "Für jeden Anlass",
+      "text": "Geburtstage, Firmenfeiern, Hochzeiten, Vereinsfeste – wir begleiten Ihre Veranstaltung professionell."
+    },
+    {
+      "icon": "🏕️",
+      "titel": "Aufbau & Ausstattung",
+      "text": "Wir liefern Zelt, Stehtische, Kühlwagen, Geschirr, Besteck, Gläser, Grills und Wärmeboxen."
+    },
+    {
+      "icon": "🧹",
+      "titel": "Rundum-Service",
+      "text": "Aufbau, Dekoration, Personal vor Ort und Abbau nach der Veranstaltung – komplett aus einer Hand."
+    }
+  ],
+  "anlaesse": [
+    "Geburtstage",
+    "Hochzeiten",
+    "Firmenfeiern",
+    "Vereinsfeste",
+    "Jubiläen",
+    "Taufen"
+  ]
+}

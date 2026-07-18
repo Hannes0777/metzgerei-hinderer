@@ -1,0 +1,314 @@
+# ============================================================
+#  Sveltia CMS – Konfiguration für Metzgerei Hinderer
+#  Bearbeitet werden JSON-Dateien im Ordner /content/
+# ============================================================
+
+backend:
+  name: github
+  repo: Hannes0777/metzgerei-hinderer
+  branch: master
+  # Eigener Cloudflare-Worker nur für diese Website: E-Mail/Passwort-Login,
+  # kein GitHub-Account nötig, kein Zugriff auf andere Websites möglich.
+  base_url: https://cms-auth-metzgerei-hinderer.ehmann-hannes07.workers.dev
+
+media_folder: uploads
+public_folder: /uploads
+
+locale: de
+
+# ============================================================
+#  SAMMLUNGEN
+# ============================================================
+
+collections:
+
+  # ----------------------------------------------------------
+  #  AKTUELLES & WOCHENANGEBOTE  (Kunde kann Angebote anlegen/löschen)
+  # ----------------------------------------------------------
+  - name: aktuelles
+    label: "📢 Aktuelles & Angebote"
+    description: "Die Angebotskacheln auf der Startseite im Bereich 'Aktuelles & Angebote'. Neue Wochenangebote hinzufügen, alte entfernen oder Texte anpassen – ändert sich direkt auf der Website."
+    files:
+      - name: aktuelles
+        label: "Angebote verwalten"
+        file: content/aktuelles.json
+        fields:
+          - name: angebote
+            label: "Angebote"
+            label_singular: "Angebot"
+            widget: list
+            required: false
+            min: 0
+            summary: "{{titel}}"
+            fields:
+              - name: badge
+                label: "Kurzes Etikett oben auf der Karte"
+                widget: string
+                hint: "z.B. 'Wochenangebot', 'Tagesessen', 'Saison', 'Tipp'"
+              - name: badge_farbe
+                label: "Farbe des Etiketts"
+                widget: select
+                options:
+                  - { label: "Rot (Standard)", value: "rot" }
+                  - { label: "Grün", value: "gruen" }
+                  - { label: "Gold", value: "gold" }
+                  - { label: "Weiß (für die hervorgehobene Karte)", value: "weiss" }
+                default: "rot"
+              - name: titel
+                label: "Titel der Karte"
+                widget: string
+              - name: text
+                label: "Beschreibungstext"
+                widget: text
+              - name: button_text
+                label: "Text auf dem Button"
+                widget: string
+                hint: "z.B. 'Jetzt anrufen', 'Vorbestellen', 'Mehr erfahren'"
+              - name: button_link
+                label: "Ziel des Buttons"
+                widget: string
+                hint: "Für Anruf: tel:+4971836103 · Für einen Sprung zum Kontaktbereich: #kontakt"
+              - name: hervorgehoben
+                label: "Als besondere Karte hervorheben (ohne Foto, rot hinterlegt)"
+                widget: boolean
+                default: false
+                hint: "So wie die Karte 'Hinderers Lieblinge'. Nur für eine einzelne Aktions-/Tipp-Karte gedacht."
+
+  # ----------------------------------------------------------
+  #  PRODUKTE
+  # ----------------------------------------------------------
+  - name: produkte
+    label: "🥩 Produkte"
+    description: "Die 5 Produktkategorien im Bereich 'Unsere Produkte'. Die Reihenfolge entspricht der Reihenfolge auf der Website (die erste Kategorie erscheint als große Kachel)."
+    files:
+      - name: produkte
+        label: "Produktkategorien verwalten"
+        file: content/produkte.json
+        fields:
+          - name: kategorien
+            label: "Kategorien"
+            label_singular: "Kategorie"
+            widget: list
+            min: 5
+            max: 5
+            summary: "{{titel}}"
+            fields:
+              - name: bild
+                label: "Bild-URL"
+                widget: string
+                hint: "Link zu einem Foto dieser Kategorie. Kein Datei-Upload – einfach die Bild-Adresse (URL) eintragen."
+              - name: tag
+                label: "Kategorie-Etikett"
+                widget: string
+                hint: "z.B. 'Kategorie 01'"
+              - name: titel
+                label: "Titel"
+                widget: string
+              - name: text
+                label: "Beschreibungstext"
+                widget: text
+              - name: punkte
+                label: "Stichpunkte"
+                label_singular: "Stichpunkt"
+                widget: list
+                field:
+                  name: text
+                  label: "Stichpunkt"
+                  widget: string
+
+  # ----------------------------------------------------------
+  #  PARTYSERVICE
+  # ----------------------------------------------------------
+  - name: partyservice
+    label: "🎉 Partyservice"
+    files:
+      - name: partyservice
+        label: "Leistungen & Anlässe"
+        file: content/partyservice.json
+        fields:
+          - name: merkmale
+            label: "Leistungspunkte ('Was wir bieten')"
+            label_singular: "Leistungspunkt"
+            widget: list
+            min: 4
+            max: 4
+            summary: "{{titel}}"
+            fields:
+              - name: icon
+                label: "Symbol (Emoji)"
+                widget: string
+                hint: "Ein einzelnes Emoji, z.B. 🍖 oder 🎉"
+              - name: titel
+                label: "Titel"
+                widget: string
+              - name: text
+                label: "Beschreibungstext"
+                widget: text
+          - name: anlaesse
+            label: "Anlässe (kleine Schlagwörter)"
+            label_singular: "Anlass"
+            widget: list
+            required: false
+            min: 0
+            hint: "z.B. Geburtstage, Hochzeiten, Firmenfeiern …"
+            field:
+              name: text
+              label: "Anlass"
+              widget: string
+
+  # ----------------------------------------------------------
+  #  ÜBER UNS
+  # ----------------------------------------------------------
+  - name: ueberuns
+    label: "🏛 Über uns"
+    files:
+      - name: ueberuns
+        label: "Text, Werte & Zeitleiste"
+        file: content/ueberuns.json
+        fields:
+          - name: absatz1
+            label: "Erster Absatz"
+            widget: markdown
+            hint: "**fettes Wort** für fettgedruckten Text"
+          - name: absatz2
+            label: "Zweiter Absatz"
+            widget: markdown
+            hint: "*kursiver Text* für kursive Schrift, z.B. für das Motto"
+          - name: absatz3
+            label: "Dritter Absatz"
+            widget: markdown
+          - name: werte
+            label: "Werte-Kacheln (Handwerk / Regional / Nachhaltig)"
+            label_singular: "Wert"
+            widget: list
+            min: 3
+            max: 3
+            summary: "{{titel}}"
+            fields:
+              - name: icon
+                label: "Symbol (Emoji oder Zeichen)"
+                widget: string
+              - name: titel
+                label: "Titel"
+                widget: string
+              - name: text
+                label: "Beschreibungstext"
+                widget: text
+          - name: zeitleiste
+            label: "Zeitleiste (Geschichte des Betriebs)"
+            label_singular: "Eintrag"
+            widget: list
+            min: 3
+            max: 3
+            summary: "{{jahr}} – {{text}}"
+            fields:
+              - name: jahr
+                label: "Jahr oder Zeitraum"
+                widget: string
+                hint: "z.B. ~1800er, Über Generationen, Heute"
+              - name: text
+                label: "Beschreibung"
+                widget: text
+
+  # ----------------------------------------------------------
+  #  EINSTELLUNGEN (mehrteilige Dateisammlung)
+  # ----------------------------------------------------------
+  - name: einstellungen
+    label: "⚙️ Einstellungen"
+    description: "Grundlegende Angaben zur Website, zum Willkommensbereich und zu Kontakt/Öffnungszeiten."
+    files:
+
+      - name: hero
+        label: "Startseite – Willkommensbereich"
+        file: content/hero.json
+        fields:
+          - name: eyebrow
+            label: "Kurzer Hinweistext über der Hauptüberschrift"
+            widget: string
+            hint: "z.B. 'Rudersberg · Gegründet seit über 200 Jahren'"
+          - name: title_line1
+            label: "Hauptüberschrift – erste Zeile"
+            widget: string
+          - name: title_line2
+            label: "Hauptüberschrift – zweite Zeile (kursiv)"
+            widget: string
+          - name: subtitle
+            label: "Untertitel"
+            widget: text
+
+      - name: kontakt
+        label: "Kontakt & Öffnungszeiten"
+        file: content/kontakt.json
+        fields:
+          - name: name
+            label: "Name (Inhaber)"
+            widget: string
+          - name: zusatz
+            label: "Betriebsbezeichnung"
+            widget: string
+            hint: "z.B. 'Metzgerei & Partyservice'"
+          - name: strasse
+            label: "Straße & Hausnummer"
+            widget: string
+          - name: ort
+            label: "PLZ & Ort"
+            widget: string
+          - name: telefon
+            label: "Telefonnummer (Anzeigeformat)"
+            widget: string
+            hint: "z.B. (07183) 6103"
+          - name: telefon_href
+            label: "Telefonnummer für Anruf-Links"
+            widget: string
+            hint: "Ohne Leerzeichen, mit Ländervorwahl +49, führende 0 der Vorwahl weglassen, z.B. +4971836103"
+          - name: email
+            label: "E-Mail-Adresse"
+            widget: string
+          - name: social
+            label: "Social-Media-Links"
+            label_singular: "Link"
+            widget: list
+            min: 2
+            max: 2
+            summary: "{{plattform}}"
+            fields:
+              - name: plattform
+                label: "Name der Plattform"
+                widget: string
+                hint: "z.B. Facebook, Instagram"
+              - name: url
+                label: "Link zur Seite"
+                widget: string
+          - name: map_embed_url
+            label: "OpenStreetMap Einbettungs-URL"
+            widget: string
+            hint: "Nicht verändern, außer der Betrieb zieht um."
+          - name: map_link_url
+            label: "Google-Maps Navigations-URL"
+            widget: string
+          - name: oeffnungszeiten
+            label: "Öffnungszeiten"
+            label_singular: "Tag"
+            widget: list
+            min: 7
+            max: 7
+            summary: "{{tag}} – {{zeit}}"
+            fields:
+              - name: tag
+                label: "Wochentag"
+                widget: string
+              - name: zeit
+                label: "Uhrzeit (oder 'Geschlossen')"
+                widget: string
+
+      - name: siteinfo
+        label: "Allgemeine Seiteninfos"
+        file: content/siteinfo.json
+        fields:
+          - name: site_title
+            label: "Seitentitel (erscheint im Browser-Tab)"
+            widget: string
+          - name: meta_description
+            label: "Kurzbeschreibung für Suchmaschinen"
+            widget: text
+            hint: "Ca. 150 Zeichen – wird von Google in den Suchergebnissen angezeigt."

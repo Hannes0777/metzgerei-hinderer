@@ -1,0 +1,40 @@
+{
+  "angebote": [
+    {
+      "badge": "Wochenangebot",
+      "badge_farbe": "rot",
+      "titel": "Wochenangebote",
+      "text": "Jeden Montag neu – unsere aktuellen Wochenangebote mit ausgewählten Fleisch- und Wurstwaren zu besonders günstigen Preisen.",
+      "button_text": "Jetzt anrufen",
+      "button_link": "tel:+4971836103",
+      "hervorgehoben": false
+    },
+    {
+      "badge": "Tagesessen",
+      "badge_farbe": "gruen",
+      "titel": "Tagesessen",
+      "text": "Täglich frisch gekochte Mahlzeiten – telefonisch vorbestellbar. Warm, hausgemacht und direkt aus unserer Küche.",
+      "button_text": "Vorbestellen",
+      "button_link": "tel:+4971836103",
+      "hervorgehoben": false
+    },
+    {
+      "badge": "Saison",
+      "badge_farbe": "gold",
+      "titel": "Saisonale Spezialitäten",
+      "text": "Grillsaison, Weihnachtszeit, Ostern – wir haben immer die passenden Spezialitäten für jeden Anlass und jede Jahreszeit.",
+      "button_text": "Mehr erfahren",
+      "button_link": "#kontakt",
+      "hervorgehoben": false
+    },
+    {
+      "badge": "Tipp",
+      "badge_farbe": "weiss",
+      "titel": "Hinderers Lieblinge",
+      "text": "Unsere hausinternen Favoriten – Fleischkäsvariationen, Dosenspezialitäten und mehr. Besuchen Sie uns und lassen Sie sich überraschen!",
+      "button_text": "Besuchen Sie uns",
+      "button_link": "#kontakt",
+      "hervorgehoben": true
+    }
+  ]
+}
