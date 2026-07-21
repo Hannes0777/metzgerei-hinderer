@@ -312,3 +312,45 @@ collections:
             label: "Kurzbeschreibung für Suchmaschinen"
             widget: text
             hint: "Ca. 150 Zeichen – wird von Google in den Suchergebnissen angezeigt."
+
+  # ----------------------------------------------------------
+  #  RECHTLICHES  (Angaben fürs Impressum, die nur der Kunde kennt)
+  # ----------------------------------------------------------
+  - name: rechtliches
+    label: "⚖️ Rechtliches"
+    description: "Angaben fürs Impressum, die nur der Betrieb selbst kennt (Steuernummer, Register, Kammer). Wichtig: Diese Felder unbedingt vor dem echten Online-Gang ausfüllen bzw. prüfen – solange ein Feld leer bleibt, erscheint im Impressum ein auffällig gestalteter Hinweis-Platzhalter an dieser Stelle."
+    files:
+      - name: rechtliches
+        label: "Impressum-Angaben verwalten"
+        file: content/rechtliches.json
+        fields:
+          - name: vertretungsberechtigte_person
+            label: "Vertretungsberechtigte Person"
+            widget: string
+            required: false
+            hint: "Name der Person, die den Betrieb rechtlich vertritt (z.B. Inhaber/in). Erscheint im Impressum unter 'Vertreten durch'."
+          - name: ust_id
+            label: "Umsatzsteuer-Identifikationsnummer (USt-IdNr.)"
+            widget: string
+            required: false
+            hint: "Format DE + 9 Ziffern, z.B. DE123456789. Nur ausfüllen, falls vorhanden. Hinweis: auf der alten Website (hinderer.de) stand 'Ust. Id. Nr.: 1446667332' - dieses Format passt aber nicht zum offiziellen USt-IdNr.-Schema (DE + 9 Ziffern). Das könnte stattdessen eine Steuernummer sein (ein anderes, rechtlich getrenntes Feld - Steuernummern sollten aus Datenschutzgründen normalerweise NICHT öffentlich im Impressum stehen). Bitte beim Steuerberater die echte USt-IdNr. erfragen, bevor hier etwas eingetragen wird."
+          - name: handelsregister_gericht
+            label: "Registergericht"
+            widget: string
+            required: false
+            hint: "Nur falls im Handelsregister eingetragen, z.B. 'Amtsgericht Stuttgart'."
+          - name: handelsregister_nummer
+            label: "Handelsregisternummer"
+            widget: string
+            required: false
+            hint: "z.B. HRB 123456 oder HRA 123456."
+          - name: kammer
+            label: "Zuständige Handwerkskammer"
+            widget: string
+            required: false
+            hint: "z.B. 'Handwerkskammer Region Stuttgart'. Für Handwerksbetriebe im Impressum vorgeschrieben."
+          - name: berufsbezeichnung
+            label: "Gesetzliche Berufsbezeichnung"
+            widget: string
+            required: false
+            hint: "z.B. 'Metzgermeister'. Wird im Impressum mit dem Zusatz 'Verliehen in: Deutschland' angezeigt."

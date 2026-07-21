@@ -7,10 +7,8 @@
   <meta name="keywords" content="Metzgerei Hinderer, Rudersberg, Partyservice, Wurstwaren, Frischfleisch, Handwerk, Catering">
   <title>Metzgerei Hinderer – Handwerkskunst seit Generationen</title>
 
-  <!-- Preconnect -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&family=Lato:wght@300;400;700&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Schriftarten: selbst gehostet (kein Nachladen von Google-Servern, DSGVO) -->
+  <link rel="stylesheet" href="css/fonts.css">
 
   <!-- GSAP + ScrollTrigger -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -464,6 +462,7 @@
               </button>
 
               <p class="form-hint">✓ Wir melden uns innerhalb von 24 Stunden · Kostenlos &amp; unverbindlich</p>
+              <p id="form-error-general" class="form-error-general" hidden>Die Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es später erneut oder rufen Sie uns an.</p>
             </form>
 
             <div id="form-success" class="form-success" hidden>
@@ -755,8 +754,8 @@
     <div class="container footer__bottom-inner">
       <p>&copy; <span id="year"></span> Metzgerei Hinderer · Werner Hinderer Metzgerei &amp; Partyservice</p>
       <div class="footer__legal">
-        <a href="#">Impressum</a>
-        <a href="#">Datenschutz</a>
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
       </div>
     </div>
   </div>

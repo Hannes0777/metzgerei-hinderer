@@ -87,7 +87,7 @@
   }
 
   // ── Fetch everything in parallel ─────────────────────────
-  const [siteinfo, hero, produkte, partyservice, ueberuns, aktuelles, kontakt] =
+  const [siteinfo, hero, produkte, partyservice, ueberuns, aktuelles, kontakt, rechtliches] =
     await Promise.all([
       fetchJSON('content/siteinfo.json'),
       fetchJSON('content/hero.json'),
@@ -96,10 +96,15 @@
       fetchJSON('content/ueberuns.json'),
       fetchJSON('content/aktuelles.json'),
       fetchJSON('content/kontakt.json'),
+      fetchJSON('content/rechtliches.json'),
     ]);
 
   // ── 1. Seiteninfos ────────────────────────────────────────
-  if (siteinfo) {
+  // Seitentitel/Meta-Beschreibung aus dem CMS gelten nur für die Startseite
+  // (erkennbar am Hero-Bereich #hero) - Impressum/Datenschutz haben ihren
+  // eigenen, fest im HTML stehenden <title> bzw. <meta name="description">
+  // und sollen hier nicht überschrieben werden.
+  if (siteinfo && document.getElementById('hero')) {
     if (siteinfo.site_title) document.title = siteinfo.site_title;
     const desc = document.querySelector('meta[name="description"]');
     if (desc && siteinfo.meta_description) desc.setAttribute('content', siteinfo.meta_description);
@@ -270,6 +275,25 @@
         if (time && h.zeit) time.textContent = h.zeit;
       });
     }
+  }
+
+  // ── 8. Rechtliches (Impressum-Felder, die nur der Kunde kennt) ──
+  // Wirkt nur, wenn die jeweilige ID auf der aktuellen Seite existiert
+  // (aktuell nur impressum.html). Ist ein Feld im CMS noch leer, bleibt
+  // der auffällig gestylte Platzhalter aus dem HTML unverändert stehen.
+  function fillLegalField(id, value) {
+    const el = document.getElementById(id);
+    if (!el || !value || !String(value).trim()) return;
+    el.textContent = value;
+    el.classList.remove('legal-placeholder');
+  }
+  if (rechtliches) {
+    fillLegalField('impressum-vertretung',        rechtliches.vertretungsberechtigte_person);
+    fillLegalField('impressum-ustid',              rechtliches.ust_id);
+    fillLegalField('impressum-hr-gericht',         rechtliches.handelsregister_gericht);
+    fillLegalField('impressum-hr-nummer',          rechtliches.handelsregister_nummer);
+    fillLegalField('impressum-kammer',             rechtliches.kammer);
+    fillLegalField('impressum-berufsbezeichnung',  rechtliches.berufsbezeichnung);
   }
 
   // ── Re-observe any newly added .reveal elements ──────────

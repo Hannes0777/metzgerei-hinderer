@@ -48,6 +48,22 @@ Foto-Upload-Felder muss dort nichts mehr eingerichtet werden.
 
 ---
 
+## Kontaktformular (Partyservice-Anfrage)
+
+Das Formular verschickt echte E-Mails über einen eigenen Cloudflare-Worker
+(`contact-form-metzgerei-hinderer`) + [Resend](https://resend.com).
+
+> ⚠️ **Vor Übergabe an den echten Kunden unbedingt ändern:** Anfragen landen
+> aktuell testweise bei `ehmann.hannes07@gmail.com`, nicht bei der Metzgerei.
+> Umstellen auf die echte Adresse (z.B. `info@hinderer.de`):
+> ```bash
+> cd contact-form-workers/metzgerei-hinderer
+> echo -n "info@hinderer.de" | npx wrangler secret put TO_EMAIL
+> ```
+> Details (Absenderadresse/Domain-Verifizierung) siehe `contact-form-workers/README.md`.
+
+---
+
 ## Troubleshooting
 
 | Problem | Lösung |

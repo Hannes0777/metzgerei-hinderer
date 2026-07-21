@@ -401,17 +401,33 @@ function isValidEmail(email) {
 function submitForm() {
   const btn = form.querySelector('[type="submit"]');
   const btnText = btn.querySelector('.btn__text');
+  const errorEl = document.getElementById('form-error-general');
+  const originalBtnText = btnText.textContent;
   btnText.textContent = 'Wird gesendet…';
   btn.disabled = true;
+  if (errorEl) errorEl.hidden = true;
 
-  // Simulate send (replace with real endpoint / EmailJS / Formspree)
-  setTimeout(() => {
-    form.style.display = 'none';
-    success.hidden = false;
-    if (typeof gsap !== 'undefined') {
-      gsap.from(success, { opacity: 0, scale: .9, duration: .5, ease: 'back.out(1.5)' });
-    }
-  }, 1200);
+  const data = Object.fromEntries(new FormData(form).entries());
+
+  fetch('https://contact-form-metzgerei-hinderer.ehmann-hannes07.workers.dev', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data),
+  })
+    .then(res => res.json().then(body => ({ ok: res.ok && body.ok, body })))
+    .then(({ ok, body }) => {
+      if (!ok) throw new Error(body?.error || 'Versand fehlgeschlagen');
+      form.style.display = 'none';
+      success.hidden = false;
+      if (typeof gsap !== 'undefined') {
+        gsap.from(success, { opacity: 0, scale: .9, duration: .5, ease: 'back.out(1.5)' });
+      }
+    })
+    .catch(() => {
+      btnText.textContent = originalBtnText;
+      btn.disabled = false;
+      if (errorEl) errorEl.hidden = false;
+    });
 }
 
 
