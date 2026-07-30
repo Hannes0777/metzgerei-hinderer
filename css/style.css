@@ -168,8 +168,14 @@ address { font-style: normal; }
 }
 .nav--scrolled {
   background: rgba(26,10,0,.96);
-  backdrop-filter: blur(12px);
   box-shadow: 0 2px 20px rgba(0,0,0,.3);
+  /* Kein backdrop-filter hier: .nav ist Vorfahre des Vollbild-Mobil-
+     menues (.nav__menu, position:fixed) - backdrop-filter auf einem
+     Vorfahren macht ihn zum "containing block" fuer fixed-Kinder,
+     wodurch das Menue nur noch auf die 72px-Kopfzeile beschraenkt
+     wurde statt den ganzen Bildschirm zu decken (Bug: Menue wirkte
+     nach oben verschoben + durchsichtig, aber nur nachdem gescrollt
+     wurde - also nur sobald .nav--scrolled aktiv war). */
 }
 .nav__inner {
   display: flex;
@@ -255,12 +261,12 @@ address { font-style: normal; }
   .nav__menu {
     position: fixed;
     inset: 0;
-    /* Volldeckende Farbe statt rgba(...,.97) + backdrop-filter: der Blur
+    /* Leicht transparent, aber bewusst OHNE backdrop-filter: der Blur
        komponiert auf manchen Geraeten/Browsern (u.a. WebKit) merklich
-       verzoegert, wodurch das Menu kurz bis sichtbar durchscheinend
-       wirkt und Text darunter (Hero) die vorderen Links unleserlich
-       macht. Ohne Blur ist die Sichtbarkeit sofort garantiert. */
-    background: var(--dark);
+       verzoegert, wodurch das Menu kurz sichtbar durchscheinend wirkt
+       und Text darunter (Hero) die vorderen Links unleserlich macht.
+       Ein reiner rgba-Ton ist sofort und zuverlaessig da. */
+    background: rgba(26,10,0,.9);
     display: flex;
     flex-direction: column;
     align-items: center;
