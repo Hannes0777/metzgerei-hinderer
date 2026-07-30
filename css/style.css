@@ -185,14 +185,14 @@ address { font-style: normal; }
 }
 .nav__logo-main {
   font-family: var(--font-serif);
-  font-size: 1.5rem;
+  font-size: 1.9rem;
   font-weight: 700;
   color: var(--white);
   letter-spacing: .02em;
 }
 .nav__logo-sub {
   font-family: var(--font-sans);
-  font-size: .65rem;
+  font-size: .7rem;
   letter-spacing: .15em;
   text-transform: uppercase;
   color: var(--gold);
@@ -204,15 +204,31 @@ address { font-style: normal; }
   gap: .25rem;
 }
 .nav__link {
+  position: relative;
   color: rgba(255,255,255,.85);
-  font-size: .87rem;
-  font-weight: 400;
+  font-size: .95rem;
+  font-weight: 600;
   letter-spacing: .04em;
   padding: .5rem .85rem;
   border-radius: var(--radius);
   transition: color var(--transition-fast), background var(--transition-fast);
 }
+.nav__link::after {
+  content: '';
+  position: absolute;
+  left: .85rem;
+  right: .85rem;
+  bottom: .2rem;
+  height: 2px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform var(--transition-fast);
+}
 .nav__link:hover { color: var(--white); background: rgba(255,255,255,.08); }
+.nav__link:hover::after,
+.nav__link--active::after { transform: scaleX(1); }
+.nav__link--active { color: var(--gold); }
 
 /* Mobile toggle */
 .nav__toggle {
@@ -304,7 +320,7 @@ address { font-style: normal; }
 .hero__content {
   position: relative;
   z-index: 2;
-  max-width: 800px;
+  max-width: 1000px;
   padding-top: 100px;
 }
 
@@ -320,13 +336,15 @@ address { font-style: normal; }
 
 .hero__title {
   font-family: var(--font-serif);
-  font-size: clamp(3rem, 7vw, 6rem);
+  font-size: clamp(2.1rem, 7vw, 5.5rem);
   font-weight: 800;
   color: var(--white);
-  line-height: 1.05;
+  line-height: 1.1;
   margin-bottom: 1.5rem;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
-.hero__title-line { display: block; overflow: hidden; }
+.hero__title-line { display: block; overflow: hidden; padding-bottom: .08em; }
 .hero__title-line.italic { font-style: italic; color: var(--gold-light); }
 
 .hero__subtitle {
@@ -436,7 +454,6 @@ address { font-style: normal; }
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
-.ticker:hover .ticker__track { animation-play-state: paused; }
 
 
 /* ============================================================
@@ -1081,6 +1098,9 @@ address { font-style: normal; }
   padding: 7rem 0;
   background: var(--cream);
   position: relative;
+  /* Folgt direkt auf intro-statement (gleicher Hintergrundton) - dünne
+     Trennlinie, damit die beiden Abschnitte optisch nicht verschmelzen. */
+  border-top: 1px solid rgba(0,0,0,.08);
 }
 .ueber-uns__grid {
   display: grid;
@@ -1239,6 +1259,9 @@ address { font-style: normal; }
   background: var(--cream-dark);
   position: relative;
   overflow: hidden;
+  /* Folgt direkt auf produkte (gleicher Hintergrundton) - dünne
+     Trennlinie, damit die beiden Abschnitte optisch nicht verschmelzen. */
+  border-top: 1px solid rgba(0,0,0,.08);
 }
 .aktuelles__bg-decor {
   position: absolute;

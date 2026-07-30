@@ -73,25 +73,38 @@ function initGSAP() {
   });
 
   gsap.utils.toArray('[data-animate]').forEach(el => {
-    const delay = parseFloat(el.dataset.delay || 0);
+    // Delay aus data-delay wird gestaucht, damit gestaffelte Gruppen
+    // nicht bei schnellem Scrollen spürbar hinterherhängen.
+    const delay = Math.min(parseFloat(el.dataset.delay || 0), 0.3) * 0.5;
     const dir   = el.dataset.animate;
     const init  = { opacity: 0 };
-    if (dir === 'fade-up')    init.y = 50;
-    if (dir === 'fade-right') init.x = -50;
-    if (dir === 'fade-left')  init.x = 50;
+    if (dir === 'fade-up')    init.y = 30;
+    if (dir === 'fade-right') init.x = -30;
+    if (dir === 'fade-left')  init.x = 30;
 
     // gsap.set overrides the CSS opacity:0 rule with an inline style
     gsap.set(el, init);
 
-    // gsap.to animates to fully visible
+    // gsap.to animates to fully visible. onComplete fügt .visible hinzu
+    // UND clearProps entfernt danach das Inline-transform:
+    // [data-animate] hat als CSS-Fallback (für Browser ohne JS)
+    // "transform: translateY(40px)" - ohne .visible-Klasse fällt das
+    // Element auf genau diesen Versatz zurück, sobald kein Inline-Style
+    // mehr vorhanden ist. Mit .visible (transform:translate(0)) ist der
+    // korrekte Ruhezustand auch ohne Inline-Style definiert - dadurch
+    // kann das Inline-transform gefahrlos entfernt werden, was wiederum
+    // nötig ist, damit CSS-:hover-transforms oder eigenes JS (z.B.
+    // Stat-Card-Tilt) danach nicht mit einem alten Inline-Wert kollidieren.
     gsap.to(el, {
       opacity: 1, x: 0, y: 0,
-      duration: .9,
+      duration: .6,
       delay,
       ease: 'power3.out',
+      clearProps: 'transform',
+      onComplete() { el.classList.add('visible'); },
       scrollTrigger: {
         trigger: el,
-        start: 'top 88%',
+        start: 'top 95%',
         once: true
       }
     });
@@ -202,19 +215,6 @@ function initGSAP() {
     }
   });
 
-  /* ── Ticker speed on scroll ──────────────────────────── */
-  const track = document.querySelector('.ticker__track');
-  if (track) {
-    ScrollTrigger.create({
-      trigger: '.ticker',
-      start: 'top bottom',
-      end: 'bottom top',
-      onUpdate(self) {
-        const speed = 1 + Math.abs(self.getVelocity()) / 1500;
-        gsap.to(track, { animationDuration: `${30 / Math.min(speed, 4)}s`, overwrite: 'auto' });
-      }
-    });
-  }
 }
 
 /* ============================================================
