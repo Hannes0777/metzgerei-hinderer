@@ -10,7 +10,7 @@
     { "plattform": "Facebook", "url": "https://www.facebook.com" },
     { "plattform": "Instagram", "url": "https://www.instagram.com" }
   ],
-  "map_embed_url": "https://www.openstreetmap.org/export/embed.html?bbox=9.5210%2C48.6760%2C9.5310%2C48.6810&layer=mapnik&marker=48.6785%2C9.5260",
+  "map_embed_url": "https://www.google.com/maps?q=Welzheimer+Stra%C3%9Fe+2%2C+73635+Rudersberg&output=embed",
   "map_link_url": "https://maps.google.com/?q=Welzheimer+Straße+2+73635+Rudersberg",
   "oeffnungszeiten": [
     { "tag": "Montag", "zeit": "07:30 – 18:00 Uhr" },

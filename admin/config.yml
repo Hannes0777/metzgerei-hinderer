@@ -301,7 +301,7 @@ collections:
                 label: "Link zur Seite"
                 widget: string
           - name: map_embed_url
-            label: "OpenStreetMap Einbettungs-URL"
+            label: "Google-Maps Einbettungs-URL"
             widget: string
             hint: "Nicht verändern, außer der Betrieb zieht um."
           - name: map_link_url
