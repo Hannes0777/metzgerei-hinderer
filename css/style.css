@@ -167,7 +167,7 @@ address { font-style: normal; }
   transition: background var(--transition), box-shadow var(--transition);
 }
 .nav--scrolled {
-  background: rgba(26,10,0,.96);
+  background: var(--dark);
   box-shadow: 0 2px 20px rgba(0,0,0,.3);
   /* Kein backdrop-filter hier: .nav ist Vorfahre des Vollbild-Mobil-
      menues (.nav__menu, position:fixed) - backdrop-filter auf einem
