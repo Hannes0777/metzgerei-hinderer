@@ -219,20 +219,7 @@ address { font-style: normal; }
   border-radius: var(--radius);
   transition: color var(--transition-fast), background var(--transition-fast);
 }
-.nav__link::after {
-  content: '';
-  position: absolute;
-  left: .85rem;
-  right: .85rem;
-  bottom: .2rem;
-  height: 2px;
-  background: var(--gold);
-  transform: scaleX(0);
-  transform-origin: center;
-  transition: transform var(--transition-fast);
-}
 .nav__link:hover { color: var(--white); background: rgba(255,255,255,.08); }
-.nav__link--active::after { transform: scaleX(1); }
 .nav__link--active { color: var(--gold); }
 
 /* Mobile toggle */
