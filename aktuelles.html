@@ -3,11 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Datenschutzerklärung der Metzgerei Hinderer – Werner Hinderer Metzgerei & Partyservice in Rudersberg.">
-  <title>Datenschutzerklärung – Metzgerei Hinderer</title>
+  <meta name="description" content="Wochenangebote, Tagesessen und saisonale Spezialitäten der Metzgerei Hinderer in Rudersberg.">
+  <title>Aktuelles & Angebote – Metzgerei Hinderer</title>
 
   <!-- Schriftarten: selbst gehostet (kein Nachladen von Google-Servern, DSGVO) -->
   <link rel="stylesheet" href="css/fonts.css">
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/SplitText.min.js"></script>
 
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -37,7 +42,7 @@
     <nav id="nav-menu" class="nav__menu" aria-label="Hauptnavigation">
       <ul role="list">
         <li><a href="produkte.html" class="nav__link">Produkte</a></li>
-        <li><a href="aktuelles.html" class="nav__link">Aktuelles</a></li>
+        <li><a href="aktuelles.html" class="nav__link nav__link--active">Aktuelles</a></li>
         <li><a href="kontakt.html" class="nav__link">Kontakt</a></li>
         <li><a href="ueber-uns.html" class="nav__link">Über uns</a></li>
         <li><a href="partyservice.html" class="nav__link">Partyservice</a></li>
@@ -52,54 +57,76 @@
   <!-- =====================================================
        SEITEN-HEADER
        ===================================================== -->
-  <section class="legal-hero" aria-label="Datenschutzerklärung">
+  <section class="legal-hero" aria-label="Aktuelles &amp; Angebote">
     <div class="container">
       <div class="section-header">
-        <span class="section-eyebrow">Rechtliches</span>
-        <h1 class="section-title">Datenschutzerklärung</h1>
+        <span class="section-eyebrow">Immer frisch</span>
+        <h1 class="section-title">Aktuelles &amp; Angebote</h1>
+        <p class="section-subtitle">Wochenkarte, saisonale Spezialitäten und aktuelle Aktionen – direkt aus unserer Metzgerei.</p>
       </div>
     </div>
   </section>
 
   <!-- =====================================================
-       DATENSCHUTZ-INHALT
+       AKTUELLES / WOCHENANGEBOTE
        ===================================================== -->
-  <section class="legal-content" aria-label="Datenschutzerklärung-Inhalt">
-    <div class="container legal-content__inner">
+  <section id="aktuelles" class="aktuelles" aria-label="Aktuelles und Wochenangebote">
+    <div class="aktuelles__bg-decor" aria-hidden="true"></div>
+    <div class="container">
+      <div class="aktuelles__grid" id="aktuelles-grid">
 
-      <h2>1. Verantwortlicher</h2>
-      <address id="kontakt-address">
-        Werner Hinderer<br>
-        Metzgerei &amp; Partyservice<br>
-        Welzheimer Straße 2<br>
-        73635 Rudersberg
-      </address>
-      <p>
-        Telefon: <a href="tel:+4971836103" class="kontakt__link">(07183) 6103</a><br>
-        E-Mail: <a href="mailto:info@hinderer.de">info@hinderer.de</a>
-      </p>
+        <div class="angebot-card" data-animate="fade-up">
+          <div class="angebot-card__top">
+            <span class="angebot-card__badge">Wochenangebot</span>
+          </div>
+          <div class="angebot-card__img img-placeholder-box">
+            <div class="placeholder-label">Ihr Foto hier</div>
+          </div>
+          <div class="angebot-card__body">
+            <h3>Wochenangebote</h3>
+            <p>Jeden Montag neu – unsere aktuellen Wochenangebote mit ausgewählten Fleisch- und Wurstwaren zu besonders günstigen Preisen.</p>
+            <a href="tel:+4971836103" class="btn btn--secondary btn--sm">Jetzt anrufen</a>
+          </div>
+        </div>
 
-      <h2>2. Ihre Rechte</h2>
-      <p>Sie haben jederzeit das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Widerspruch gegen die Verarbeitung sowie auf Datenübertragbarkeit Ihrer gespeicherten Daten. Zudem haben Sie das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren.</p>
+        <div class="angebot-card" data-animate="fade-up" data-delay="0.1">
+          <div class="angebot-card__top">
+            <span class="angebot-card__badge angebot-card__badge--green">Tagesessen</span>
+          </div>
+          <div class="angebot-card__img img-placeholder-box">
+            <div class="placeholder-label">Ihr Foto hier</div>
+          </div>
+          <div class="angebot-card__body">
+            <h3>Tagesessen</h3>
+            <p>Täglich frisch gekochte Mahlzeiten – telefonisch vorbestellbar. Warm, hausgemacht und direkt aus unserer Küche.</p>
+            <a href="tel:+4971836103" class="btn btn--secondary btn--sm">Vorbestellen</a>
+          </div>
+        </div>
 
-      <h2>3. Erhebung von Daten beim Besuch der Website (Server-Logfiles)</h2>
-      <p>Diese Website wird über GitHub Pages gehostet. Beim Aufruf der Seite erhebt der Hosting-Anbieter automatisch Informationen in Server-Logfiles (u.a. IP-Adresse, Datum und Uhrzeit der Anfrage, Browsertyp). Diese Daten dienen der technischen Bereitstellung der Website (Art. 6 Abs. 1 lit. f DSGVO) und werden nach kurzer Zeit automatisch gelöscht.</p>
+        <div class="angebot-card" data-animate="fade-up" data-delay="0.2">
+          <div class="angebot-card__top">
+            <span class="angebot-card__badge angebot-card__badge--gold">Saison</span>
+          </div>
+          <div class="angebot-card__img img-placeholder-box">
+            <div class="placeholder-label">Ihr Foto hier</div>
+          </div>
+          <div class="angebot-card__body">
+            <h3>Saisonale Spezialitäten</h3>
+            <p>Grillsaison, Weihnachtszeit, Ostern – wir haben immer die passenden Spezialitäten für jeden Anlass und jede Jahreszeit.</p>
+            <a href="kontakt.html" class="btn btn--secondary btn--sm">Mehr erfahren</a>
+          </div>
+        </div>
 
-      <h2>4. Kontaktformular</h2>
-      <p>Das Kontaktformular auf dieser Website ist aktuell noch nicht mit einem echten E-Mail-Versand verbunden – beim Absenden werden derzeit keine Formulardaten an uns oder Dritte übertragen. Dieser Abschnitt wird aktualisiert, sobald der Versand eingerichtet ist.</p>
+        <div class="angebot-card angebot-card--highlight" data-animate="fade-up" data-delay="0.3">
+          <div class="angebot-card__body">
+            <span class="angebot-card__badge angebot-card__badge--white">Tipp</span>
+            <h3>Hinderers Lieblinge</h3>
+            <p>Unsere hausinternen Favoriten – Fleischkäsvariationen, Dosenspezialitäten und mehr. Besuchen Sie uns und lassen Sie sich überraschen!</p>
+            <a href="kontakt.html" class="btn btn--outline-light btn--sm">Besuchen Sie uns</a>
+          </div>
+        </div>
 
-      <h2>5. Eingebundene Kartendienste</h2>
-      <p>Auf dieser Seite ist eine Karte von OpenStreetMap eingebunden. Beim Aufruf der Seite mit aktiver Karte wird eine Verbindung zu Servern der OpenStreetMap Foundation hergestellt, wodurch deren Server die IP-Adresse des aufrufenden Geräts erhalten (Art. 6 Abs. 1 lit. f DSGVO). Mehr dazu: <a href="https://wiki.osmfoundation.org/wiki/Privacy_Policy" target="_blank" rel="noopener">https://wiki.osmfoundation.org/wiki/Privacy_Policy</a></p>
-
-      <h2>6. Schriftarten (Webfonts)</h2>
-      <p>Auf dieser Website werden Schriftarten lokal selbst gehostet (kein Nachladen von externen Font-Servern wie Google Fonts). Es findet dabei keine Verbindung zu Servern Dritter statt und es werden keine Daten an Dritte übermittelt.</p>
-
-      <h2>7. Cookies</h2>
-      <p>Diese Website setzt keine Tracking- oder Analyse-Cookies ein.</p>
-
-      <h2>8. Änderungen dieser Datenschutzerklärung</h2>
-      <p>Wir behalten uns vor, diese Datenschutzerklärung anzupassen, damit sie stets den aktuellen rechtlichen Anforderungen entspricht.</p>
-
+      </div>
     </div>
   </section>
 

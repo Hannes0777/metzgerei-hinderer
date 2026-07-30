@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="7 Generationen Handwerkstradition: die Geschichte der Metzgerei Hinderer in Rudersberg.">
+  <title>Über uns – Metzgerei Hinderer</title>
+
+  <!-- Schriftarten: selbst gehostet (kein Nachladen von Google-Servern, DSGVO) -->
+  <link rel="stylesheet" href="css/fonts.css">
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/SplitText.min.js"></script>
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ── Progress Bar ────────────────────────────────────── -->
+<div id="progress-bar" aria-hidden="true">
+  <div id="progress-fill"></div>
+</div>
+
+<!-- =====================================================
+     NAVIGATION
+     ===================================================== -->
+<header id="main-nav" class="nav" role="banner">
+  <div class="nav__inner container">
+    <a href="index.html" class="nav__logo" aria-label="Metzgerei Hinderer – Startseite">
+      <span class="nav__logo-text">
+        <span class="nav__logo-main">Hinderer</span>
+        <span class="nav__logo-sub">Metzgerei &amp; Partyservice</span>
+      </span>
+    </a>
+
+    <button id="nav-toggle" class="nav__toggle" aria-label="Navigation öffnen" aria-expanded="false" aria-controls="nav-menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav id="nav-menu" class="nav__menu" aria-label="Hauptnavigation">
+      <ul role="list">
+        <li><a href="produkte.html" class="nav__link">Produkte</a></li>
+        <li><a href="aktuelles.html" class="nav__link">Aktuelles</a></li>
+        <li><a href="kontakt.html" class="nav__link">Kontakt</a></li>
+        <li><a href="ueber-uns.html" class="nav__link nav__link--active">Über uns</a></li>
+        <li><a href="partyservice.html" class="nav__link">Partyservice</a></li>
+        <li><a href="partyservice.html#anfrage" class="btn btn--nav">Anfrage stellen</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- =====================================================
+       SEITEN-HEADER
+       ===================================================== -->
+  <section class="legal-hero" aria-label="Über uns">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Unsere Geschichte</span>
+        <h1 class="section-title">Über uns</h1>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       ÜBER UNS
+       ===================================================== -->
+  <section id="ueber-uns" class="ueber-uns" aria-label="Über uns">
+    <div class="container">
+      <div class="ueber-uns__grid">
+        <div class="ueber-uns__text" data-animate="fade-right">
+          <h3>Tradition trifft Leidenschaft</h3>
+          <p>Die Metzgerei Hinderer blickt auf über <strong>200 Jahre Geschichte</strong> zurück und ist heute in der 7. Generation ein fester Bestandteil des Lebens in Rudersberg. Dorothe und Werner Hinderer führen den Betrieb mit dem gleichen Engagement wie alle ihre Vorfahren.</p>
+          <p>Unser Motto <em>"Altes Bewahren, Neues Erfahren"</em> bringt es auf den Punkt: Wir kombinieren überlieferte Handwerkskunst mit modernster Technik und stetiger Weiterentwicklung. Das Ergebnis sind Produkte, die schmecken wie früher – aber mit der Qualität von heute.</p>
+          <p>Alle unsere Fleisch- und Wurstwaren entstehen in unserem eigenen Betrieb in Rudersberg. Wir kennen unsere Lieferanten persönlich und legen größten Wert auf regionale Herkunft und artgerechte Tierhaltung.</p>
+
+          <div class="ueber-uns__values">
+            <div class="value-item">
+              <span class="value-item__icon">⚒</span>
+              <h4>Handwerk</h4>
+              <p>Jedes Produkt entsteht in traditioneller Handarbeit nach überlieferten Rezepten.</p>
+            </div>
+            <div class="value-item">
+              <span class="value-item__icon">📍</span>
+              <h4>Regional</h4>
+              <p>Wir beziehen unser Fleisch ausschließlich von regionalen Betrieben aus der Umgebung.</p>
+            </div>
+            <div class="value-item">
+              <span class="value-item__icon">♻</span>
+              <h4>Nachhaltig</h4>
+              <p>Verantwortungsvoller Umgang mit Ressourcen und Respekt gegenüber Mensch und Tier.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="ueber-uns__visual" data-animate="fade-left">
+          <div class="ueber-uns__img-main img-placeholder-box">
+            <img src="https://image.jimcdn.com/app/cms/image/transf/dimension=287x10000:format=png/path/s932c40ad2e5d9cb2/image/i422bae40fef33421/version/1494857669/image.png"
+                 alt="Metzgerei Hinderer Team"
+                 class="ueber-uns__img"
+                 loading="lazy"
+                 onerror="this.style.display='none'">
+            <div class="img-overlay-text">Metzgerei Hinderer</div>
+          </div>
+
+          <div class="ueber-uns__timeline">
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div>
+                <strong>~1800er</strong>
+                <p>Gründung der Metzgerei Hinderer in Rudersberg</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div>
+                <strong>Über Generationen</strong>
+                <p>Überlieferung von Wissen und Rezepten über 7 Generationen</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div>
+                <strong>Heute</strong>
+                <p>Dorothe & Werner Hinderer führen den Betrieb mit modernster Technik und alter Handwerkskunst</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="gen-badge" aria-label="7. Generation Familie Hinderer">
+            <span class="gen-badge__num">7</span>
+            <span class="gen-badge__text">Generation</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
+<footer class="footer" role="contentinfo">
+  <div class="footer__top">
+    <div class="container footer__top-inner">
+      <div class="footer__brand">
+        <span class="footer__logo-main">Hinderer</span>
+        <span class="footer__logo-sub">Metzgerei &amp; Partyservice</span>
+        <p>Handwerksqualität seit über 200 Jahren – mitten in Rudersberg.</p>
+      </div>
+      <div class="footer__links">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="produkte.html">Produkte</a></li>
+          <li><a href="aktuelles.html">Aktuelles</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+          <li><a href="ueber-uns.html">Über uns</a></li>
+          <li><a href="partyservice.html">Partyservice</a></li>
+        </ul>
+      </div>
+      <div class="footer__contact">
+        <h4>Kontakt</h4>
+        <p id="footer-address">Welzheimer Straße 2<br>73635 Rudersberg</p>
+        <p><a href="tel:+4971836103">(07183) 6103</a></p>
+        <p><a href="mailto:info@hinderer.de">info@hinderer.de</a></p>
+      </div>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <div class="container footer__bottom-inner">
+      <p>&copy; <span id="year"></span> Metzgerei Hinderer · Werner Hinderer Metzgerei &amp; Partyservice</p>
+      <div class="footer__legal">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to top -->
+<button id="back-to-top" class="back-to-top" aria-label="Nach oben scrollen">↑</button>
+
+<script src="js/cms-content.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Unser Sortiment: Frischfleisch, Wurstwaren, Feinkost, Mittagstisch und Snacks – handwerklich hergestellt in Rudersberg.">
+  <title>Produkte – Metzgerei Hinderer</title>
+
+  <!-- Schriftarten: selbst gehostet (kein Nachladen von Google-Servern, DSGVO) -->
+  <link rel="stylesheet" href="css/fonts.css">
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/SplitText.min.js"></script>
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ── Progress Bar ────────────────────────────────────── -->
+<div id="progress-bar" aria-hidden="true">
+  <div id="progress-fill"></div>
+</div>
+
+<!-- =====================================================
+     NAVIGATION
+     ===================================================== -->
+<header id="main-nav" class="nav" role="banner">
+  <div class="nav__inner container">
+    <a href="index.html" class="nav__logo" aria-label="Metzgerei Hinderer – Startseite">
+      <span class="nav__logo-text">
+        <span class="nav__logo-main">Hinderer</span>
+        <span class="nav__logo-sub">Metzgerei &amp; Partyservice</span>
+      </span>
+    </a>
+
+    <button id="nav-toggle" class="nav__toggle" aria-label="Navigation öffnen" aria-expanded="false" aria-controls="nav-menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav id="nav-menu" class="nav__menu" aria-label="Hauptnavigation">
+      <ul role="list">
+        <li><a href="produkte.html" class="nav__link nav__link--active">Produkte</a></li>
+        <li><a href="aktuelles.html" class="nav__link">Aktuelles</a></li>
+        <li><a href="kontakt.html" class="nav__link">Kontakt</a></li>
+        <li><a href="ueber-uns.html" class="nav__link">Über uns</a></li>
+        <li><a href="partyservice.html" class="nav__link">Partyservice</a></li>
+        <li><a href="partyservice.html#anfrage" class="btn btn--nav">Anfrage stellen</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- =====================================================
+       SEITEN-HEADER
+       ===================================================== -->
+  <section class="legal-hero" aria-label="Unsere Produkte">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Sortiment</span>
+        <h1 class="section-title">Unsere Produkte</h1>
+        <p class="section-subtitle">Ausgewählt, handwerklich veredelt und täglich frisch – entdecken Sie unsere Spezialitäten.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       PRODUKTE
+       ===================================================== -->
+  <section id="produkte" class="produkte" aria-label="Unsere Produkte">
+    <div class="container">
+      <div class="produkte__grid">
+
+        <div class="produkt-card produkt-card--large" data-animate="fade-up">
+          <div class="produkt-card__img-wrap">
+            <img src="https://image.jimcdn.com/app/cms/image/transf/none/path/s932c40ad2e5d9cb2/image/ib6de505324ec5e38/version/1499417190/image.png"
+                 alt="Frisches Fleisch von Metzgerei Hinderer"
+                 class="produkt-card__img"
+                 loading="lazy"
+                 onerror="this.style.display='none';this.closest('.produkt-card__img-wrap').classList.add('img-placeholder')">
+            <div class="produkt-card__img-placeholder" aria-hidden="true">
+              <span>Frischfleisch</span>
+            </div>
+            <div class="produkt-card__overlay">
+              <span class="produkt-card__tag">Kategorie 01</span>
+            </div>
+          </div>
+          <div class="produkt-card__body">
+            <h3 class="produkt-card__title">Frischfleisch</h3>
+            <p class="produkt-card__text">Rindfleisch, Schweinefleisch, Geflügel und Lammfleisch – alles frisch vom regionalen Erzeuger, täglich vorbereitet in unserem Betrieb.</p>
+            <ul class="produkt-card__list">
+              <li>Rind aus der Region</li>
+              <li>Schwein vom Bauernhof</li>
+              <li>Geflügel & Lamm</li>
+              <li>Tagesfrische Zuschnitte</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="produkt-card" data-animate="fade-up" data-delay="0.1">
+          <div class="produkt-card__img-wrap">
+            <img src="https://image.jimcdn.com/app/cms/image/transf/dimension=368x10000:format=png/path/s932c40ad2e5d9cb2/image/idb1b63bfbab717c1/version/1526479583/image.png"
+                 alt="Hausgemachte Wurstwaren"
+                 class="produkt-card__img"
+                 loading="lazy"
+                 onerror="this.style.display='none';this.closest('.produkt-card__img-wrap').classList.add('img-placeholder')">
+            <div class="produkt-card__img-placeholder" aria-hidden="true">
+              <span>Wurstwaren</span>
+            </div>
+            <div class="produkt-card__overlay">
+              <span class="produkt-card__tag">Kategorie 02</span>
+            </div>
+          </div>
+          <div class="produkt-card__body">
+            <h3 class="produkt-card__title">Wurstwaren</h3>
+            <p class="produkt-card__text">Hauseigene Rezepturen, überliefert über Generationen. Von der klassischen Bratwurst bis zur feinen Leberwurst.</p>
+            <ul class="produkt-card__list">
+              <li>Hinderers Lieblinge</li>
+              <li>Fleischkäsvariationen</li>
+              <li>Hausmacherwurst</li>
+              <li>Spezialitäten aus dem Rauch</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="produkt-card" data-animate="fade-up" data-delay="0.2">
+          <div class="produkt-card__img-wrap">
+            <img src="https://image.jimcdn.com/app/cms/image/transf/dimension=298x10000:format=png/path/s932c40ad2e5d9cb2/image/ib9e6fab7abc6ccee/version/1498038044/image.png"
+                 alt="Feinkost und Delikatessen"
+                 class="produkt-card__img"
+                 loading="lazy"
+                 onerror="this.style.display='none';this.closest('.produkt-card__img-wrap').classList.add('img-placeholder')">
+            <div class="produkt-card__img-placeholder" aria-hidden="true">
+              <span>Feinkost</span>
+            </div>
+            <div class="produkt-card__overlay">
+              <span class="produkt-card__tag">Kategorie 03</span>
+            </div>
+          </div>
+          <div class="produkt-card__body">
+            <h3 class="produkt-card__title">Feinkost</h3>
+            <p class="produkt-card__text">Fisch, Käse, frische Salate und Gourmetprodukte – eine erlesene Auswahl für besondere Genussmomente.</p>
+            <ul class="produkt-card__list">
+              <li>Frische Salate</li>
+              <li>Käsespezialitäten</li>
+              <li>Fischdelikatessen</li>
+              <li>Dosenspezialitäten</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="produkt-card" data-animate="fade-up" data-delay="0.3">
+          <div class="produkt-card__img-wrap">
+            <img src="https://image.jimcdn.com/app/cms/image/transf/dimension=298x10000:format=png/path/s932c40ad2e5d9cb2/image/i3177c2cb5fa92551/version/1498046129/image.png"
+                 alt="Mittagstisch und Tagesessen"
+                 class="produkt-card__img"
+                 loading="lazy"
+                 onerror="this.style.display='none';this.closest('.produkt-card__img-wrap').classList.add('img-placeholder')">
+            <div class="produkt-card__img-placeholder" aria-hidden="true">
+              <span>Mittagstisch</span>
+            </div>
+            <div class="produkt-card__overlay">
+              <span class="produkt-card__tag">Kategorie 04</span>
+            </div>
+          </div>
+          <div class="produkt-card__body">
+            <h3 class="produkt-card__title">Mittagstisch & Tagesessen</h3>
+            <p class="produkt-card__text">Täglich frisch gekochte Gerichte – telefonisch vorbestellbar. Warm, hausgemacht und herzhaft.</p>
+            <ul class="produkt-card__list">
+              <li>Wechselnde Tagesgerichte</li>
+              <li>Telefonisch vorbestellen</li>
+              <li>Wochenangebote</li>
+              <li>Saisonale Spezialitäten</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="produkt-card" data-animate="fade-up" data-delay="0.1">
+          <div class="produkt-card__img-wrap">
+            <img src="https://image.jimcdn.com/app/cms/image/transf/dimension=298x10000:format=png/path/s932c40ad2e5d9cb2/image/iee7476bc991f949d/version/1498048216/image.png"
+                 alt="Snacks und Imbiss"
+                 class="produkt-card__img"
+                 loading="lazy"
+                 onerror="this.style.display='none';this.closest('.produkt-card__img-wrap').classList.add('img-placeholder')">
+            <div class="produkt-card__img-placeholder" aria-hidden="true">
+              <span>Snacks</span>
+            </div>
+            <div class="produkt-card__overlay">
+              <span class="produkt-card__tag">Kategorie 05</span>
+            </div>
+          </div>
+          <div class="produkt-card__body">
+            <h3 class="produkt-card__title">Snacks & Imbiss</h3>
+            <p class="produkt-card__text">Frische hausgemachte Snacks für den kleinen und großen Hunger – ideal für die Mittagspause oder zwischendurch.</p>
+            <ul class="produkt-card__list">
+              <li>Frische Wurstsemmeln</li>
+              <li>Fleischkäse-Variationen</li>
+              <li>Belegte Brote</li>
+              <li>Hausgemachte Salate</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="produkt-card produkt-card--cta" data-animate="fade-up" data-delay="0.2">
+          <div class="produkt-card__cta-inner">
+            <span class="produkt-card__cta-icon">✦</span>
+            <h3>Noch mehr entdecken</h3>
+            <p>Besuchen Sie uns persönlich in der Welzheimer Straße 2 in Rudersberg und lassen Sie sich von unserer Auswahl inspirieren.</p>
+            <a href="kontakt.html" class="btn btn--primary">Öffnungszeiten ansehen</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
+<footer class="footer" role="contentinfo">
+  <div class="footer__top">
+    <div class="container footer__top-inner">
+      <div class="footer__brand">
+        <span class="footer__logo-main">Hinderer</span>
+        <span class="footer__logo-sub">Metzgerei &amp; Partyservice</span>
+        <p>Handwerksqualität seit über 200 Jahren – mitten in Rudersberg.</p>
+      </div>
+      <div class="footer__links">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="produkte.html">Produkte</a></li>
+          <li><a href="aktuelles.html">Aktuelles</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+          <li><a href="ueber-uns.html">Über uns</a></li>
+          <li><a href="partyservice.html">Partyservice</a></li>
+        </ul>
+      </div>
+      <div class="footer__contact">
+        <h4>Kontakt</h4>
+        <p id="footer-address">Welzheimer Straße 2<br>73635 Rudersberg</p>
+        <p><a href="tel:+4971836103">(07183) 6103</a></p>
+        <p><a href="mailto:info@hinderer.de">info@hinderer.de</a></p>
+      </div>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <div class="container footer__bottom-inner">
+      <p>&copy; <span id="year"></span> Metzgerei Hinderer · Werner Hinderer Metzgerei &amp; Partyservice</p>
+      <div class="footer__legal">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to top -->
+<button id="back-to-top" class="back-to-top" aria-label="Nach oben scrollen">↑</button>
+
+<script src="js/cms-content.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

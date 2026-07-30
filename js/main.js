@@ -285,19 +285,8 @@ menu.querySelectorAll('a').forEach(a => {
   });
 });
 
-/* Active link on scroll */
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav__link');
-const activateLink = () => {
-  let current = '';
-  sections.forEach(s => {
-    if (window.scrollY >= s.offsetTop - 120) current = s.id;
-  });
-  navLinks.forEach(a => {
-    a.classList.toggle('nav__link--active', a.getAttribute('href') === `#${current}`);
-  });
-};
-window.addEventListener('scroll', activateLink, { passive: true });
+/* Aktiver Nav-Link: Mehrseiten-Setup, daher statisch pro Seite im HTML
+   gesetzt (nav__link--active) statt per Scroll-Position ermittelt. */
 
 
 /* ============================================================

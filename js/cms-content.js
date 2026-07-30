@@ -60,7 +60,7 @@
     <span class="angebot-card__badge ${badgeClass}">${item.badge || ''}</span>
     <h3>${item.titel || ''}</h3>
     <p>${item.text || ''}</p>
-    <a href="${item.button_link || '#kontakt'}" class="${btnClass}">${item.button_text || ''}</a>
+    <a href="${item.button_link || 'kontakt.html'}" class="${btnClass}">${item.button_text || ''}</a>
   </div>
 </div>`.trim();
     }
@@ -76,7 +76,7 @@
   <div class="angebot-card__body">
     <h3>${item.titel || ''}</h3>
     <p>${item.text || ''}</p>
-    <a href="${item.button_link || '#kontakt'}" class="${btnClass}">${item.button_text || ''}</a>
+    <a href="${item.button_link || 'kontakt.html'}" class="${btnClass}">${item.button_text || ''}</a>
   </div>
 </div>`.trim();
   }

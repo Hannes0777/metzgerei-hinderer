@@ -29,7 +29,7 @@
      ===================================================== -->
 <header id="main-nav" class="nav" role="banner">
   <div class="nav__inner container">
-    <a href="#hero" class="nav__logo" aria-label="Metzgerei Hinderer – Startseite">
+    <a href="index.html" class="nav__logo" aria-label="Metzgerei Hinderer – Startseite">
       <span class="nav__logo-text">
         <span class="nav__logo-main">Hinderer</span>
         <span class="nav__logo-sub">Metzgerei &amp; Partyservice</span>
@@ -42,12 +42,12 @@
 
     <nav id="nav-menu" class="nav__menu" aria-label="Hauptnavigation">
       <ul role="list">
-        <li><a href="#produkte"    class="nav__link">Produkte</a></li>
-        <li><a href="#aktuelles"   class="nav__link">Aktuelles</a></li>
-        <li><a href="#kontakt"     class="nav__link">Kontakt</a></li>
-        <li><a href="#ueber-uns"   class="nav__link">Über uns</a></li>
-        <li><a href="#partyservice" class="nav__link">Partyservice</a></li>
-        <li><a href="#anfrage" class="btn btn--nav">Anfrage stellen</a></li>
+        <li><a href="produkte.html" class="nav__link">Produkte</a></li>
+        <li><a href="aktuelles.html" class="nav__link">Aktuelles</a></li>
+        <li><a href="kontakt.html" class="nav__link">Kontakt</a></li>
+        <li><a href="ueber-uns.html" class="nav__link">Über uns</a></li>
+        <li><a href="partyservice.html" class="nav__link">Partyservice</a></li>
+        <li><a href="partyservice.html#anfrage" class="btn btn--nav">Anfrage stellen</a></li>
       </ul>
     </nav>
   </div>
@@ -71,8 +71,8 @@
       </h1>
       <p class="hero__subtitle reveal-fade">Traditionelle Metzgerei mit Leidenschaft – Werner Hinderer und Familie stehen seit der 7. Generation für höchste Qualität aus der Region.</p>
       <div class="hero__ctas reveal-fade">
-        <a href="#produkte" class="btn btn--primary btn--lg">Unsere Produkte</a>
-        <a href="#partyservice" class="btn btn--outline btn--lg">Partyservice anfragen</a>
+        <a href="produkte.html" class="btn btn--primary btn--lg">Unsere Produkte</a>
+        <a href="partyservice.html#anfrage" class="btn btn--outline btn--lg">Partyservice anfragen</a>
       </div>
     </div>
 
@@ -146,324 +146,44 @@
   </section>
 
   <!-- =====================================================
-       PRODUKTE
+       SCHNELLZUGRIFF
        ===================================================== -->
-  <section id="produkte" class="produkte" aria-label="Unsere Produkte">
+  <section class="quick-links" aria-label="Schnellzugriff">
     <div class="container">
-      <div class="section-header" data-animate="fade-up">
-        <span class="section-eyebrow">Sortiment</span>
-        <h2 class="section-title">Unsere Produkte</h2>
-        <p class="section-subtitle">Ausgewählt, handwerklich veredelt und täglich frisch – entdecken Sie unsere Spezialitäten.</p>
-      </div>
-
-      <div class="produkte__grid">
-
-        <div class="produkt-card produkt-card--large" data-animate="fade-up">
-          <div class="produkt-card__img-wrap">
-            <img src="https://image.jimcdn.com/app/cms/image/transf/none/path/s932c40ad2e5d9cb2/image/ib6de505324ec5e38/version/1499417190/image.png"
-                 alt="Frisches Fleisch von Metzgerei Hinderer"
-                 class="produkt-card__img"
-                 loading="lazy"
-                 onerror="this.style.display='none';this.closest('.produkt-card__img-wrap').classList.add('img-placeholder')">
-            <div class="produkt-card__img-placeholder" aria-hidden="true">
-              <span>Frischfleisch</span>
-            </div>
-            <div class="produkt-card__overlay">
-              <span class="produkt-card__tag">Kategorie 01</span>
-            </div>
-          </div>
-          <div class="produkt-card__body">
-            <h3 class="produkt-card__title">Frischfleisch</h3>
-            <p class="produkt-card__text">Rindfleisch, Schweinefleisch, Geflügel und Lammfleisch – alles frisch vom regionalen Erzeuger, täglich vorbereitet in unserem Betrieb.</p>
-            <ul class="produkt-card__list">
-              <li>Rind aus der Region</li>
-              <li>Schwein vom Bauernhof</li>
-              <li>Geflügel & Lamm</li>
-              <li>Tagesfrische Zuschnitte</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="produkt-card" data-animate="fade-up" data-delay="0.1">
-          <div class="produkt-card__img-wrap">
-            <img src="https://image.jimcdn.com/app/cms/image/transf/dimension=368x10000:format=png/path/s932c40ad2e5d9cb2/image/idb1b63bfbab717c1/version/1526479583/image.png"
-                 alt="Hausgemachte Wurstwaren"
-                 class="produkt-card__img"
-                 loading="lazy"
-                 onerror="this.style.display='none';this.closest('.produkt-card__img-wrap').classList.add('img-placeholder')">
-            <div class="produkt-card__img-placeholder" aria-hidden="true">
-              <span>Wurstwaren</span>
-            </div>
-            <div class="produkt-card__overlay">
-              <span class="produkt-card__tag">Kategorie 02</span>
-            </div>
-          </div>
-          <div class="produkt-card__body">
-            <h3 class="produkt-card__title">Wurstwaren</h3>
-            <p class="produkt-card__text">Hauseigene Rezepturen, überliefert über Generationen. Von der klassischen Bratwurst bis zur feinen Leberwurst.</p>
-            <ul class="produkt-card__list">
-              <li>Hinderers Lieblinge</li>
-              <li>Fleischkäsvariationen</li>
-              <li>Hausmacherwurst</li>
-              <li>Spezialitäten aus dem Rauch</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="produkt-card" data-animate="fade-up" data-delay="0.2">
-          <div class="produkt-card__img-wrap">
-            <img src="https://image.jimcdn.com/app/cms/image/transf/dimension=298x10000:format=png/path/s932c40ad2e5d9cb2/image/ib9e6fab7abc6ccee/version/1498038044/image.png"
-                 alt="Feinkost und Delikatessen"
-                 class="produkt-card__img"
-                 loading="lazy"
-                 onerror="this.style.display='none';this.closest('.produkt-card__img-wrap').classList.add('img-placeholder')">
-            <div class="produkt-card__img-placeholder" aria-hidden="true">
-              <span>Feinkost</span>
-            </div>
-            <div class="produkt-card__overlay">
-              <span class="produkt-card__tag">Kategorie 03</span>
-            </div>
-          </div>
-          <div class="produkt-card__body">
-            <h3 class="produkt-card__title">Feinkost</h3>
-            <p class="produkt-card__text">Fisch, Käse, frische Salate und Gourmetprodukte – eine erlesene Auswahl für besondere Genussmomente.</p>
-            <ul class="produkt-card__list">
-              <li>Frische Salate</li>
-              <li>Käsespezialitäten</li>
-              <li>Fischdelikatessen</li>
-              <li>Dosenspezialitäten</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="produkt-card" data-animate="fade-up" data-delay="0.3">
-          <div class="produkt-card__img-wrap">
-            <img src="https://image.jimcdn.com/app/cms/image/transf/dimension=298x10000:format=png/path/s932c40ad2e5d9cb2/image/i3177c2cb5fa92551/version/1498046129/image.png"
-                 alt="Mittagstisch und Tagesessen"
-                 class="produkt-card__img"
-                 loading="lazy"
-                 onerror="this.style.display='none';this.closest('.produkt-card__img-wrap').classList.add('img-placeholder')">
-            <div class="produkt-card__img-placeholder" aria-hidden="true">
-              <span>Mittagstisch</span>
-            </div>
-            <div class="produkt-card__overlay">
-              <span class="produkt-card__tag">Kategorie 04</span>
-            </div>
-          </div>
-          <div class="produkt-card__body">
-            <h3 class="produkt-card__title">Mittagstisch & Tagesessen</h3>
-            <p class="produkt-card__text">Täglich frisch gekochte Gerichte – telefonisch vorbestellbar. Warm, hausgemacht und herzhaft.</p>
-            <ul class="produkt-card__list">
-              <li>Wechselnde Tagesgerichte</li>
-              <li>Telefonisch vorbestellen</li>
-              <li>Wochenangebote</li>
-              <li>Saisonale Spezialitäten</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="produkt-card" data-animate="fade-up" data-delay="0.1">
-          <div class="produkt-card__img-wrap">
-            <img src="https://image.jimcdn.com/app/cms/image/transf/dimension=298x10000:format=png/path/s932c40ad2e5d9cb2/image/iee7476bc991f949d/version/1498048216/image.png"
-                 alt="Snacks und Imbiss"
-                 class="produkt-card__img"
-                 loading="lazy"
-                 onerror="this.style.display='none';this.closest('.produkt-card__img-wrap').classList.add('img-placeholder')">
-            <div class="produkt-card__img-placeholder" aria-hidden="true">
-              <span>Snacks</span>
-            </div>
-            <div class="produkt-card__overlay">
-              <span class="produkt-card__tag">Kategorie 05</span>
-            </div>
-          </div>
-          <div class="produkt-card__body">
-            <h3 class="produkt-card__title">Snacks & Imbiss</h3>
-            <p class="produkt-card__text">Frische hausgemachte Snacks für den kleinen und großen Hunger – ideal für die Mittagspause oder zwischendurch.</p>
-            <ul class="produkt-card__list">
-              <li>Frische Wurstsemmeln</li>
-              <li>Fleischkäse-Variationen</li>
-              <li>Belegte Brote</li>
-              <li>Hausgemachte Salate</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="produkt-card produkt-card--cta" data-animate="fade-up" data-delay="0.2">
-          <div class="produkt-card__cta-inner">
-            <span class="produkt-card__cta-icon">✦</span>
-            <h3>Noch mehr entdecken</h3>
-            <p>Besuchen Sie uns persönlich in der Welzheimer Straße 2 in Rudersberg und lassen Sie sich von unserer Auswahl inspirieren.</p>
-            <a href="#kontakt" class="btn btn--primary">Öffnungszeiten ansehen</a>
-          </div>
-        </div>
-
+      <div class="quick-links__grid">
+        <a href="produkte.html" class="quick-link-card" data-animate="fade-up">
+          <span class="quick-link-card__icon" aria-hidden="true">🥩</span>
+          <h3>Produkte</h3>
+          <p>Frischfleisch, Wurstwaren, Feinkost und mehr aus eigener Herstellung.</p>
+          <span class="quick-link-card__arrow" aria-hidden="true">→</span>
+        </a>
+        <a href="aktuelles.html" class="quick-link-card" data-animate="fade-up" data-delay="0.1">
+          <span class="quick-link-card__icon" aria-hidden="true">📰</span>
+          <h3>Aktuelles</h3>
+          <p>Wochenangebote, Tagesessen und saisonale Spezialitäten.</p>
+          <span class="quick-link-card__arrow" aria-hidden="true">→</span>
+        </a>
+        <a href="partyservice.html" class="quick-link-card" data-animate="fade-up" data-delay="0.2">
+          <span class="quick-link-card__icon" aria-hidden="true">🎉</span>
+          <h3>Partyservice</h3>
+          <p>Catering für Feiern und Events – von der Planung bis zum letzten Gast.</p>
+          <span class="quick-link-card__arrow" aria-hidden="true">→</span>
+        </a>
+        <a href="ueber-uns.html" class="quick-link-card" data-animate="fade-up" data-delay="0.3">
+          <span class="quick-link-card__icon" aria-hidden="true">📖</span>
+          <h3>Über uns</h3>
+          <p>7 Generationen Handwerkstradition in Rudersberg.</p>
+          <span class="quick-link-card__arrow" aria-hidden="true">→</span>
+        </a>
+        <a href="kontakt.html" class="quick-link-card" data-animate="fade-up" data-delay="0.1">
+          <span class="quick-link-card__icon" aria-hidden="true">📍</span>
+          <h3>Kontakt</h3>
+          <p>Adresse, Öffnungszeiten und Anfahrt.</p>
+          <span class="quick-link-card__arrow" aria-hidden="true">→</span>
+        </a>
       </div>
     </div>
   </section>
-
-  <!-- =====================================================
-       AKTUELLES / WOCHENANGEBOTE
-       ===================================================== -->
-  <section id="aktuelles" class="aktuelles" aria-label="Aktuelles und Wochenangebote">
-    <div class="aktuelles__bg-decor" aria-hidden="true"></div>
-    <div class="container">
-      <div class="section-header" data-animate="fade-up">
-        <span class="section-eyebrow">Immer frisch</span>
-        <h2 class="section-title">Aktuelles &amp; Angebote</h2>
-        <p class="section-subtitle">Wochenkarte, saisonale Spezialitäten und aktuelle Aktionen – direkt aus unserer Metzgerei.</p>
-      </div>
-
-      <div class="aktuelles__grid" id="aktuelles-grid">
-
-        <div class="angebot-card" data-animate="fade-up">
-          <div class="angebot-card__top">
-            <span class="angebot-card__badge">Wochenangebot</span>
-          </div>
-          <div class="angebot-card__img img-placeholder-box">
-            <div class="placeholder-label">Ihr Foto hier</div>
-          </div>
-          <div class="angebot-card__body">
-            <h3>Wochenangebote</h3>
-            <p>Jeden Montag neu – unsere aktuellen Wochenangebote mit ausgewählten Fleisch- und Wurstwaren zu besonders günstigen Preisen.</p>
-            <a href="tel:+4971836103" class="btn btn--secondary btn--sm">Jetzt anrufen</a>
-          </div>
-        </div>
-
-        <div class="angebot-card" data-animate="fade-up" data-delay="0.1">
-          <div class="angebot-card__top">
-            <span class="angebot-card__badge angebot-card__badge--green">Tagesessen</span>
-          </div>
-          <div class="angebot-card__img img-placeholder-box">
-            <div class="placeholder-label">Ihr Foto hier</div>
-          </div>
-          <div class="angebot-card__body">
-            <h3>Tagesessen</h3>
-            <p>Täglich frisch gekochte Mahlzeiten – telefonisch vorbestellbar. Warm, hausgemacht und direkt aus unserer Küche.</p>
-            <a href="tel:+4971836103" class="btn btn--secondary btn--sm">Vorbestellen</a>
-          </div>
-        </div>
-
-        <div class="angebot-card" data-animate="fade-up" data-delay="0.2">
-          <div class="angebot-card__top">
-            <span class="angebot-card__badge angebot-card__badge--gold">Saison</span>
-          </div>
-          <div class="angebot-card__img img-placeholder-box">
-            <div class="placeholder-label">Ihr Foto hier</div>
-          </div>
-          <div class="angebot-card__body">
-            <h3>Saisonale Spezialitäten</h3>
-            <p>Grillsaison, Weihnachtszeit, Ostern – wir haben immer die passenden Spezialitäten für jeden Anlass und jede Jahreszeit.</p>
-            <a href="#kontakt" class="btn btn--secondary btn--sm">Mehr erfahren</a>
-          </div>
-        </div>
-
-        <div class="angebot-card angebot-card--highlight" data-animate="fade-up" data-delay="0.3">
-          <div class="angebot-card__body">
-            <span class="angebot-card__badge angebot-card__badge--white">Tipp</span>
-            <h3>Hinderers Lieblinge</h3>
-            <p>Unsere hausinternen Favoriten – Fleischkäsvariationen, Dosenspezialitäten und mehr. Besuchen Sie uns und lassen Sie sich überraschen!</p>
-            <a href="#kontakt" class="btn btn--outline-light btn--sm">Besuchen Sie uns</a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- =====================================================
-       KONTAKT & ÖFFNUNGSZEITEN
-       ===================================================== -->
-  <section id="kontakt" class="kontakt" aria-label="Kontakt und Öffnungszeiten">
-    <div class="container">
-      <div class="section-header" data-animate="fade-up">
-        <span class="section-eyebrow">Besuchen Sie uns</span>
-        <h2 class="section-title">Kontakt &amp; Öffnungszeiten</h2>
-      </div>
-
-      <div class="kontakt__grid">
-
-        <div class="kontakt__info" data-animate="fade-right">
-          <div class="kontakt__card">
-            <h3 class="kontakt__card-title">📍 Adresse</h3>
-            <address id="kontakt-address">
-              Werner Hinderer<br>
-              Metzgerei &amp; Partyservice<br>
-              Welzheimer Straße 2<br>
-              73635 Rudersberg
-            </address>
-          </div>
-
-          <div class="kontakt__card">
-            <h3 class="kontakt__card-title">📞 Kontakt</h3>
-            <p><a href="tel:+4971836103" class="kontakt__link">(07183) 6103</a></p>
-            <p><a href="mailto:info@hinderer.de" class="kontakt__link">info@hinderer.de</a></p>
-            <div class="social-links">
-              <a href="https://www.facebook.com" class="social-link" aria-label="Metzgerei Hinderer auf Facebook" target="_blank" rel="noopener">
-                <span>Facebook</span>
-              </a>
-              <a href="https://www.instagram.com" class="social-link" aria-label="Metzgerei Hinderer auf Instagram" target="_blank" rel="noopener">
-                <span>Instagram</span>
-              </a>
-            </div>
-          </div>
-
-          <div class="kontakt__card kontakt__card--hours">
-            <h3 class="kontakt__card-title">🕐 Öffnungszeiten</h3>
-            <div class="hours-grid">
-              <div class="hours-row">
-                <span class="hours-day">Montag</span>
-                <span class="hours-time">07:30 – 18:00 Uhr</span>
-              </div>
-              <div class="hours-row">
-                <span class="hours-day">Dienstag</span>
-                <span class="hours-time">07:30 – 18:00 Uhr</span>
-              </div>
-              <div class="hours-row hours-row--short">
-                <span class="hours-day">Mittwoch</span>
-                <span class="hours-time">07:30 – 13:00 Uhr</span>
-              </div>
-              <div class="hours-row">
-                <span class="hours-day">Donnerstag</span>
-                <span class="hours-time">07:30 – 18:00 Uhr</span>
-              </div>
-              <div class="hours-row">
-                <span class="hours-day">Freitag</span>
-                <span class="hours-time">07:30 – 18:00 Uhr</span>
-              </div>
-              <div class="hours-row">
-                <span class="hours-day">Samstag</span>
-                <span class="hours-time">07:00 – 12:30 Uhr</span>
-              </div>
-              <div class="hours-row hours-row--closed">
-                <span class="hours-day">Sonntag</span>
-                <span class="hours-time">Geschlossen</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="kontakt__map-wrap" data-animate="fade-left">
-          <div id="map" class="kontakt__map" role="img" aria-label="Karte: Metzgerei Hinderer, Welzheimer Straße 2, Rudersberg">
-            <!-- OpenStreetMap embedded via iframe -->
-            <iframe
-              src="https://www.openstreetmap.org/export/embed.html?bbox=9.5210%2C48.6760%2C9.5310%2C48.6810&layer=mapnik&marker=48.6785%2C9.5260"
-              width="100%"
-              height="100%"
-              style="border:0;"
-              loading="lazy"
-              title="Karte Metzgerei Hinderer in Rudersberg"
-              allowfullscreen>
-            </iframe>
-          </div>
-          <a href="https://maps.google.com/?q=Welzheimer+Straße+2+73635+Rudersberg" target="_blank" rel="noopener" class="btn btn--primary btn--map">
-            In Google Maps öffnen →
-          </a>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
 
   <!-- =====================================================
        INTRO STATEMENT
@@ -483,237 +203,6 @@
     </div>
   </section>
 
-  <!-- =====================================================
-       ÜBER UNS
-       ===================================================== -->
-  <section id="ueber-uns" class="ueber-uns" aria-label="Über uns">
-    <div class="container">
-      <div class="section-header" data-animate="fade-up">
-        <span class="section-eyebrow">Unsere Geschichte</span>
-        <h2 class="section-title">Über uns</h2>
-      </div>
-
-      <div class="ueber-uns__grid">
-        <div class="ueber-uns__text" data-animate="fade-right">
-          <h3>Tradition trifft Leidenschaft</h3>
-          <p>Die Metzgerei Hinderer blickt auf über <strong>200 Jahre Geschichte</strong> zurück und ist heute in der 7. Generation ein fester Bestandteil des Lebens in Rudersberg. Dorothe und Werner Hinderer führen den Betrieb mit dem gleichen Engagement wie alle ihre Vorfahren.</p>
-          <p>Unser Motto <em>"Altes Bewahren, Neues Erfahren"</em> bringt es auf den Punkt: Wir kombinieren überlieferte Handwerkskunst mit modernster Technik und stetiger Weiterentwicklung. Das Ergebnis sind Produkte, die schmecken wie früher – aber mit der Qualität von heute.</p>
-          <p>Alle unsere Fleisch- und Wurstwaren entstehen in unserem eigenen Betrieb in Rudersberg. Wir kennen unsere Lieferanten persönlich und legen größten Wert auf regionale Herkunft und artgerechte Tierhaltung.</p>
-
-          <div class="ueber-uns__values">
-            <div class="value-item">
-              <span class="value-item__icon">⚒</span>
-              <h4>Handwerk</h4>
-              <p>Jedes Produkt entsteht in traditioneller Handarbeit nach überlieferten Rezepten.</p>
-            </div>
-            <div class="value-item">
-              <span class="value-item__icon">📍</span>
-              <h4>Regional</h4>
-              <p>Wir beziehen unser Fleisch ausschließlich von regionalen Betrieben aus der Umgebung.</p>
-            </div>
-            <div class="value-item">
-              <span class="value-item__icon">♻</span>
-              <h4>Nachhaltig</h4>
-              <p>Verantwortungsvoller Umgang mit Ressourcen und Respekt gegenüber Mensch und Tier.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="ueber-uns__visual" data-animate="fade-left">
-          <div class="ueber-uns__img-main img-placeholder-box">
-            <img src="https://image.jimcdn.com/app/cms/image/transf/dimension=287x10000:format=png/path/s932c40ad2e5d9cb2/image/i422bae40fef33421/version/1494857669/image.png"
-                 alt="Metzgerei Hinderer Team"
-                 class="ueber-uns__img"
-                 loading="lazy"
-                 onerror="this.style.display='none'">
-            <div class="img-overlay-text">Metzgerei Hinderer</div>
-          </div>
-
-          <div class="ueber-uns__timeline">
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div>
-                <strong>~1800er</strong>
-                <p>Gründung der Metzgerei Hinderer in Rudersberg</p>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div>
-                <strong>Über Generationen</strong>
-                <p>Überlieferung von Wissen und Rezepten über 7 Generationen</p>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div>
-                <strong>Heute</strong>
-                <p>Dorothe & Werner Hinderer führen den Betrieb mit modernster Technik und alter Handwerkskunst</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="gen-badge" aria-label="7. Generation Familie Hinderer">
-            <span class="gen-badge__num">7</span>
-            <span class="gen-badge__text">Generation</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- =====================================================
-       PARTYSERVICE
-       ===================================================== -->
-  <section id="partyservice" class="partyservice" aria-label="Partyservice">
-    <div class="partyservice__bg-text" aria-hidden="true">PARTY</div>
-
-    <div class="container">
-      <div class="section-header section-header--light" data-animate="fade-up">
-        <span class="section-eyebrow section-eyebrow--light">Catering & Events</span>
-        <h2 class="section-title section-title--light">Partyservice</h2>
-        <p class="section-subtitle section-subtitle--light">Von der Planung bis zum letzten Gast – wir kümmern uns um alles.</p>
-      </div>
-
-      <div class="partyservice__grid">
-
-        <div class="partyservice__info" data-animate="fade-right">
-          <h3 class="partyservice__info-title">Was wir bieten</h3>
-
-          <div class="ps-feature">
-            <div class="ps-feature__icon">🍖</div>
-            <div>
-              <h4>Buffets & Grillplatten</h4>
-              <p>Reichhaltige Buffets mit hausgemachten Spezialitäten, Grillplatten und Aufschnitt – abgestimmt auf Ihre Wünsche.</p>
-            </div>
-          </div>
-          <div class="ps-feature">
-            <div class="ps-feature__icon">🎉</div>
-            <div>
-              <h4>Für jeden Anlass</h4>
-              <p>Geburtstage, Firmenfeiern, Hochzeiten, Vereinsfeste – wir begleiten Ihre Veranstaltung professionell.</p>
-            </div>
-          </div>
-          <div class="ps-feature">
-            <div class="ps-feature__icon">🏕️</div>
-            <div>
-              <h4>Aufbau & Ausstattung</h4>
-              <p>Wir liefern Zelt, Stehtische, Kühlwagen, Geschirr, Besteck, Gläser, Grills und Wärmeboxen.</p>
-            </div>
-          </div>
-          <div class="ps-feature">
-            <div class="ps-feature__icon">🧹</div>
-            <div>
-              <h4>Rundum-Service</h4>
-              <p>Aufbau, Dekoration, Personal vor Ort und Abbau nach der Veranstaltung – komplett aus einer Hand.</p>
-            </div>
-          </div>
-
-          <div class="partyservice__occasions" id="occasion-tags">
-            <span class="occasion-tag">Geburtstage</span>
-            <span class="occasion-tag">Hochzeiten</span>
-            <span class="occasion-tag">Firmenfeiern</span>
-            <span class="occasion-tag">Vereinsfeste</span>
-            <span class="occasion-tag">Jubiläen</span>
-            <span class="occasion-tag">Taufen</span>
-          </div>
-        </div>
-
-        <!-- ── Anfrage-Formular ── -->
-        <div id="anfrage" class="partyservice__form-wrap" data-animate="fade-left">
-          <div class="form-card">
-            <div class="form-card__header">
-              <h3>Unverbindlich anfragen</h3>
-              <p>Wir melden uns innerhalb von 24 Stunden bei Ihnen.</p>
-            </div>
-
-            <form id="partyservice-form" novalidate>
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="f-name">Name *</label>
-                  <input type="text" id="f-name" name="name" required placeholder="Ihr vollständiger Name" autocomplete="name">
-                  <span class="form-error" role="alert"></span>
-                </div>
-                <div class="form-group">
-                  <label for="f-phone">Telefon *</label>
-                  <input type="tel" id="f-phone" name="phone" required placeholder="Ihre Telefonnummer" autocomplete="tel">
-                  <span class="form-error" role="alert"></span>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label for="f-email">E-Mail *</label>
-                <input type="email" id="f-email" name="email" required placeholder="ihre@email.de" autocomplete="email">
-                <span class="form-error" role="alert"></span>
-              </div>
-
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="f-date">Datum der Veranstaltung *</label>
-                  <input type="date" id="f-date" name="date" required>
-                  <span class="form-error" role="alert"></span>
-                </div>
-                <div class="form-group">
-                  <label for="f-persons">Anzahl Personen *</label>
-                  <input type="number" id="f-persons" name="persons" required min="1" placeholder="z.B. 50">
-                  <span class="form-error" role="alert"></span>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label for="f-event">Art des Events *</label>
-                <select id="f-event" name="event" required>
-                  <option value="" disabled selected>Bitte wählen…</option>
-                  <option value="geburtstag">Geburtstag</option>
-                  <option value="hochzeit">Hochzeit</option>
-                  <option value="firmenevent">Firmenevent</option>
-                  <option value="vereinsfest">Vereinsfest</option>
-                  <option value="jubilaeum">Jubiläum</option>
-                  <option value="taufe">Taufe</option>
-                  <option value="sonstiges">Sonstiges</option>
-                </select>
-                <span class="form-error" role="alert"></span>
-              </div>
-
-              <div class="form-group">
-                <label for="f-food">Gewünschte Speisen</label>
-                <textarea id="f-food" name="food" rows="2" placeholder="z.B. Buffet, Grillplatte, Aufschnitt…"></textarea>
-              </div>
-
-              <div class="form-group">
-                <label for="f-notes">Anmerkungen & Wünsche</label>
-                <textarea id="f-notes" name="notes" rows="3" placeholder="Besondere Wünsche, Allergien oder weitere Informationen…"></textarea>
-              </div>
-
-              <div class="form-group form-group--checkbox">
-                <label class="checkbox-label">
-                  <input type="checkbox" id="f-consent" name="consent" required>
-                  <span class="checkbox-custom"></span>
-                  <span>Ich stimme zu, dass meine Angaben zur Bearbeitung meiner Anfrage gespeichert werden. *</span>
-                </label>
-                <span class="form-error" role="alert"></span>
-              </div>
-
-              <button type="submit" class="btn btn--primary btn--full">
-                <span class="btn__text">Unverbindlich anfragen</span>
-                <span class="btn__icon">→</span>
-              </button>
-
-              <p class="form-hint">✓ Wir melden uns innerhalb von 24 Stunden · Kostenlos &amp; unverbindlich</p>
-              <p id="form-error-general" class="form-error-general" hidden>Die Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es später erneut oder rufen Sie uns an.</p>
-            </form>
-
-            <div id="form-success" class="form-success" hidden>
-              <div class="form-success__icon">✓</div>
-              <h4>Vielen Dank!</h4>
-              <p>Ihre Anfrage ist eingegangen. Wir melden uns innerhalb von 24 Stunden.</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
 </main>
 
 <!-- =====================================================
@@ -730,11 +219,11 @@
       <div class="footer__links">
         <h4>Navigation</h4>
         <ul>
-          <li><a href="#produkte">Produkte</a></li>
-          <li><a href="#aktuelles">Aktuelles</a></li>
-          <li><a href="#kontakt">Kontakt</a></li>
-          <li><a href="#ueber-uns">Über uns</a></li>
-          <li><a href="#partyservice">Partyservice</a></li>
+          <li><a href="produkte.html">Produkte</a></li>
+          <li><a href="aktuelles.html">Aktuelles</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+          <li><a href="ueber-uns.html">Über uns</a></li>
+          <li><a href="partyservice.html">Partyservice</a></li>
         </ul>
       </div>
       <div class="footer__contact">

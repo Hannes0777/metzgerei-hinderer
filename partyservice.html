@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Catering für Geburtstage, Hochzeiten, Firmenfeiern und Vereinsfeste – Partyservice der Metzgerei Hinderer in Rudersberg.">
+  <title>Partyservice – Metzgerei Hinderer</title>
+
+  <!-- Schriftarten: selbst gehostet (kein Nachladen von Google-Servern, DSGVO) -->
+  <link rel="stylesheet" href="css/fonts.css">
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/SplitText.min.js"></script>
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ── Progress Bar ────────────────────────────────────── -->
+<div id="progress-bar" aria-hidden="true">
+  <div id="progress-fill"></div>
+</div>
+
+<!-- =====================================================
+     NAVIGATION
+     ===================================================== -->
+<header id="main-nav" class="nav" role="banner">
+  <div class="nav__inner container">
+    <a href="index.html" class="nav__logo" aria-label="Metzgerei Hinderer – Startseite">
+      <span class="nav__logo-text">
+        <span class="nav__logo-main">Hinderer</span>
+        <span class="nav__logo-sub">Metzgerei &amp; Partyservice</span>
+      </span>
+    </a>
+
+    <button id="nav-toggle" class="nav__toggle" aria-label="Navigation öffnen" aria-expanded="false" aria-controls="nav-menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav id="nav-menu" class="nav__menu" aria-label="Hauptnavigation">
+      <ul role="list">
+        <li><a href="produkte.html" class="nav__link">Produkte</a></li>
+        <li><a href="aktuelles.html" class="nav__link">Aktuelles</a></li>
+        <li><a href="kontakt.html" class="nav__link">Kontakt</a></li>
+        <li><a href="ueber-uns.html" class="nav__link">Über uns</a></li>
+        <li><a href="partyservice.html" class="nav__link nav__link--active">Partyservice</a></li>
+        <li><a href="partyservice.html#anfrage" class="btn btn--nav">Anfrage stellen</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- =====================================================
+       SEITEN-HEADER
+       ===================================================== -->
+  <section class="legal-hero" aria-label="Partyservice">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Catering &amp; Events</span>
+        <h1 class="section-title">Partyservice</h1>
+        <p class="section-subtitle">Von der Planung bis zum letzten Gast – wir kümmern uns um alles.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       PARTYSERVICE
+       ===================================================== -->
+  <section id="partyservice" class="partyservice" aria-label="Partyservice">
+    <div class="partyservice__bg-text" aria-hidden="true">PARTY</div>
+
+    <div class="container">
+      <div class="partyservice__grid">
+
+        <div class="partyservice__info" data-animate="fade-right">
+          <h3 class="partyservice__info-title">Was wir bieten</h3>
+
+          <div class="ps-feature">
+            <div class="ps-feature__icon">🍖</div>
+            <div>
+              <h4>Buffets & Grillplatten</h4>
+              <p>Reichhaltige Buffets mit hausgemachten Spezialitäten, Grillplatten und Aufschnitt – abgestimmt auf Ihre Wünsche.</p>
+            </div>
+          </div>
+          <div class="ps-feature">
+            <div class="ps-feature__icon">🎉</div>
+            <div>
+              <h4>Für jeden Anlass</h4>
+              <p>Geburtstage, Firmenfeiern, Hochzeiten, Vereinsfeste – wir begleiten Ihre Veranstaltung professionell.</p>
+            </div>
+          </div>
+          <div class="ps-feature">
+            <div class="ps-feature__icon">🏕️</div>
+            <div>
+              <h4>Aufbau & Ausstattung</h4>
+              <p>Wir liefern Zelt, Stehtische, Kühlwagen, Geschirr, Besteck, Gläser, Grills und Wärmeboxen.</p>
+            </div>
+          </div>
+          <div class="ps-feature">
+            <div class="ps-feature__icon">🧹</div>
+            <div>
+              <h4>Rundum-Service</h4>
+              <p>Aufbau, Dekoration, Personal vor Ort und Abbau nach der Veranstaltung – komplett aus einer Hand.</p>
+            </div>
+          </div>
+
+          <div class="partyservice__occasions" id="occasion-tags">
+            <span class="occasion-tag">Geburtstage</span>
+            <span class="occasion-tag">Hochzeiten</span>
+            <span class="occasion-tag">Firmenfeiern</span>
+            <span class="occasion-tag">Vereinsfeste</span>
+            <span class="occasion-tag">Jubiläen</span>
+            <span class="occasion-tag">Taufen</span>
+          </div>
+        </div>
+
+        <!-- ── Anfrage-Formular ── -->
+        <div id="anfrage" class="partyservice__form-wrap" data-animate="fade-left">
+          <div class="form-card">
+            <div class="form-card__header">
+              <h3>Unverbindlich anfragen</h3>
+              <p>Wir melden uns innerhalb von 24 Stunden bei Ihnen.</p>
+            </div>
+
+            <form id="partyservice-form" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="f-name">Name *</label>
+                  <input type="text" id="f-name" name="name" required placeholder="Ihr vollständiger Name" autocomplete="name">
+                  <span class="form-error" role="alert"></span>
+                </div>
+                <div class="form-group">
+                  <label for="f-phone">Telefon *</label>
+                  <input type="tel" id="f-phone" name="phone" required placeholder="Ihre Telefonnummer" autocomplete="tel">
+                  <span class="form-error" role="alert"></span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="f-email">E-Mail *</label>
+                <input type="email" id="f-email" name="email" required placeholder="ihre@email.de" autocomplete="email">
+                <span class="form-error" role="alert"></span>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="f-date">Datum der Veranstaltung *</label>
+                  <input type="date" id="f-date" name="date" required>
+                  <span class="form-error" role="alert"></span>
+                </div>
+                <div class="form-group">
+                  <label for="f-persons">Anzahl Personen *</label>
+                  <input type="number" id="f-persons" name="persons" required min="1" placeholder="z.B. 50">
+                  <span class="form-error" role="alert"></span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="f-event">Art des Events *</label>
+                <select id="f-event" name="event" required>
+                  <option value="" disabled selected>Bitte wählen…</option>
+                  <option value="geburtstag">Geburtstag</option>
+                  <option value="hochzeit">Hochzeit</option>
+                  <option value="firmenevent">Firmenevent</option>
+                  <option value="vereinsfest">Vereinsfest</option>
+                  <option value="jubilaeum">Jubiläum</option>
+                  <option value="taufe">Taufe</option>
+                  <option value="sonstiges">Sonstiges</option>
+                </select>
+                <span class="form-error" role="alert"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="f-food">Gewünschte Speisen</label>
+                <textarea id="f-food" name="food" rows="2" placeholder="z.B. Buffet, Grillplatte, Aufschnitt…"></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="f-notes">Anmerkungen & Wünsche</label>
+                <textarea id="f-notes" name="notes" rows="3" placeholder="Besondere Wünsche, Allergien oder weitere Informationen…"></textarea>
+              </div>
+
+              <div class="form-group form-group--checkbox">
+                <label class="checkbox-label">
+                  <input type="checkbox" id="f-consent" name="consent" required>
+                  <span class="checkbox-custom"></span>
+                  <span>Ich stimme zu, dass meine Angaben zur Bearbeitung meiner Anfrage gespeichert werden. *</span>
+                </label>
+                <span class="form-error" role="alert"></span>
+              </div>
+
+              <button type="submit" class="btn btn--primary btn--full">
+                <span class="btn__text">Unverbindlich anfragen</span>
+                <span class="btn__icon">→</span>
+              </button>
+
+              <p class="form-hint">✓ Wir melden uns innerhalb von 24 Stunden · Kostenlos &amp; unverbindlich</p>
+              <p id="form-error-general" class="form-error-general" hidden>Die Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es später erneut oder rufen Sie uns an.</p>
+            </form>
+
+            <div id="form-success" class="form-success" hidden>
+              <div class="form-success__icon">✓</div>
+              <h4>Vielen Dank!</h4>
+              <p>Ihre Anfrage ist eingegangen. Wir melden uns innerhalb von 24 Stunden.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
+<footer class="footer" role="contentinfo">
+  <div class="footer__top">
+    <div class="container footer__top-inner">
+      <div class="footer__brand">
+        <span class="footer__logo-main">Hinderer</span>
+        <span class="footer__logo-sub">Metzgerei &amp; Partyservice</span>
+        <p>Handwerksqualität seit über 200 Jahren – mitten in Rudersberg.</p>
+      </div>
+      <div class="footer__links">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="produkte.html">Produkte</a></li>
+          <li><a href="aktuelles.html">Aktuelles</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+          <li><a href="ueber-uns.html">Über uns</a></li>
+          <li><a href="partyservice.html">Partyservice</a></li>
+        </ul>
+      </div>
+      <div class="footer__contact">
+        <h4>Kontakt</h4>
+        <p id="footer-address">Welzheimer Straße 2<br>73635 Rudersberg</p>
+        <p><a href="tel:+4971836103">(07183) 6103</a></p>
+        <p><a href="mailto:info@hinderer.de">info@hinderer.de</a></p>
+      </div>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <div class="container footer__bottom-inner">
+      <p>&copy; <span id="year"></span> Metzgerei Hinderer · Werner Hinderer Metzgerei &amp; Partyservice</p>
+      <div class="footer__legal">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to top -->
+<button id="back-to-top" class="back-to-top" aria-label="Nach oben scrollen">↑</button>
+
+<script src="js/cms-content.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -24,7 +24,7 @@
       "titel": "Saisonale Spezialitäten",
       "text": "Grillsaison, Weihnachtszeit, Ostern – wir haben immer die passenden Spezialitäten für jeden Anlass und jede Jahreszeit.",
       "button_text": "Mehr erfahren",
-      "button_link": "#kontakt",
+      "button_link": "kontakt.html",
       "hervorgehoben": false
     },
     {
@@ -33,7 +33,7 @@
       "titel": "Hinderers Lieblinge",
       "text": "Unsere hausinternen Favoriten – Fleischkäsvariationen, Dosenspezialitäten und mehr. Besuchen Sie uns und lassen Sie sich überraschen!",
       "button_text": "Besuchen Sie uns",
-      "button_link": "#kontakt",
+      "button_link": "kontakt.html",
       "hervorgehoben": true
     }
   ]
