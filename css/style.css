@@ -521,6 +521,19 @@ address { font-style: normal; }
 
 
 /* ============================================================
+   RESPONSIVE STARTSEITE: Handy = kurze Seite mit Links auf eigene
+   Unterseiten (produkte.html usw.), Desktop = eine lange Seite mit
+   allen Abschnitten (wie vor der Mehrseiten-Umstellung). Breakpoint
+   deckt sich mit dem Nav-Umbruch weiter oben (max-width: 1024px).
+   ============================================================ */
+@media (max-width: 1024px) {
+  .desktop-section { display: none; }
+}
+@media (min-width: 1025px) {
+  .mobile-section { display: none; }
+}
+
+/* ============================================================
    SCHNELLZUGRIFF (Startseite -> Unterseiten)
    ============================================================ */
 .quick-links {

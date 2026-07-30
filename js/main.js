@@ -290,6 +290,56 @@ menu.querySelectorAll('a').forEach(a => {
 
 
 /* ============================================================
+   RESPONSIVE INTERNE LINKS
+   Handy: eigene Unterseiten (produkte.html, kontakt.html, ...).
+   PC: eine lange Seite mit Ankern (index.html#produkte, ...) - wie vor
+   der Mehrseiten-Umstellung. Jeder Link mit [data-section] bekommt sein
+   href je nach Bildschirmbreite gesetzt statt fest im HTML zu stehen,
+   damit ein und dieselbe Seite auf beiden Geräten passend verlinkt.
+   Breakpoint deckt sich mit dem Nav-Umbruch in style.css (1024px).
+   ============================================================ */
+const RESPONSIVE_BREAKPOINT = 1024;
+const SECTION_PAGES = {
+  produkte: 'produkte.html',
+  aktuelles: 'aktuelles.html',
+  kontakt: 'kontakt.html',
+  'ueber-uns': 'ueber-uns.html',
+  partyservice: 'partyservice.html',
+};
+
+function isDesktopViewport() {
+  return window.innerWidth > RESPONSIVE_BREAKPOINT;
+}
+
+function resolveInternalLinks() {
+  const onSinglePage = !!document.getElementById('hero'); // nur index.html hat den Hero-Bereich
+  const desktop = isDesktopViewport();
+
+  document.querySelectorAll('[data-section]').forEach(a => {
+    const section = a.dataset.section;
+    const page = SECTION_PAGES[section];
+    if (!page) return;
+    const anchor = a.dataset.anchor || section;
+
+    if (desktop) {
+      a.href = onSinglePage ? `#${anchor}` : `index.html#${anchor}`;
+    } else {
+      a.href = page + (a.dataset.anchor ? `#${a.dataset.anchor}` : '');
+    }
+  });
+}
+
+resolveInternalLinks();
+document.addEventListener('cms-ready', resolveInternalLinks);
+
+let resizeTimer;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(resolveInternalLinks, 150);
+});
+
+
+/* ============================================================
    PROGRESS BAR
    ============================================================ */
 const fill = document.getElementById('progress-fill');

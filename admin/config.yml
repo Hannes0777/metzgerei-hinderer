@@ -73,9 +73,22 @@ collections:
                 widget: string
                 hint: "z.B. 'Jetzt anrufen', 'Vorbestellen', 'Mehr erfahren'"
               - name: button_link
-                label: "Ziel des Buttons"
+                label: "Ziel des Buttons (Telefonnummer o.Ä.)"
                 widget: string
-                hint: "Für Anruf: tel:+4971836103 · Für einen Sprung zum Kontaktbereich: #kontakt"
+                required: false
+                hint: "Nur für externe Ziele wie Anrufe: tel:+4971836103. Für einen Verweis auf einen Bereich der Website bitte stattdessen 'Verweis auf Bereich' unten benutzen - der passt sich automatisch an, ob der Besucher auf dem Handy oder am PC ist."
+              - name: button_section
+                label: "Verweis auf Bereich (statt Telefonnummer)"
+                widget: select
+                required: false
+                options:
+                  - { label: "Kein Verweis - nur die Telefonnummer oben verwenden", value: "" }
+                  - { label: "Produkte", value: "produkte" }
+                  - { label: "Aktuelles", value: "aktuelles" }
+                  - { label: "Kontakt & Öffnungszeiten", value: "kontakt" }
+                  - { label: "Über uns", value: "ueber-uns" }
+                  - { label: "Partyservice", value: "partyservice" }
+                hint: "Führt auf dem PC zum jeweiligen Bereich der Startseite, auf dem Handy zur passenden eigenen Unterseite."
               - name: hervorgehoben
                 label: "Als besondere Karte hervorheben (ohne Foto, rot hinterlegt)"
                 widget: boolean

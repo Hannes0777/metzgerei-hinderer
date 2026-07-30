@@ -53,6 +53,12 @@
     const cardClass = highlighted ? 'angebot-card angebot-card--highlight' : 'angebot-card';
     const btnClass  = highlighted ? 'btn btn--outline-light btn--sm' : 'btn btn--secondary btn--sm';
 
+    // button_section (z.B. "kontakt") statt einer festen button_link-URL:
+    // damit passt sich der Link per resolveInternalLinks() (main.js) an -
+    // Desktop = Anker auf der Einzelseite, Handy = eigene Unterseite.
+    const btnHref = item.button_section ? '#' : (item.button_link || 'kontakt.html');
+    const btnDataAttr = item.button_section ? ` data-section="${item.button_section}"` : '';
+
     if (highlighted) {
       return `
 <div class="${cardClass}">
@@ -60,7 +66,7 @@
     <span class="angebot-card__badge ${badgeClass}">${item.badge || ''}</span>
     <h3>${item.titel || ''}</h3>
     <p>${item.text || ''}</p>
-    <a href="${item.button_link || 'kontakt.html'}" class="${btnClass}">${item.button_text || ''}</a>
+    <a href="${btnHref}"${btnDataAttr} class="${btnClass}">${item.button_text || ''}</a>
   </div>
 </div>`.trim();
     }
@@ -76,7 +82,7 @@
   <div class="angebot-card__body">
     <h3>${item.titel || ''}</h3>
     <p>${item.text || ''}</p>
-    <a href="${item.button_link || 'kontakt.html'}" class="${btnClass}">${item.button_text || ''}</a>
+    <a href="${btnHref}"${btnDataAttr} class="${btnClass}">${item.button_text || ''}</a>
   </div>
 </div>`.trim();
   }
