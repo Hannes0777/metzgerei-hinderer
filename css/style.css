@@ -207,7 +207,7 @@ address { font-style: normal; }
 .nav__menu ul {
   display: flex;
   align-items: center;
-  gap: .25rem;
+  gap: 0;
 }
 .nav__link {
   position: relative;
@@ -215,8 +215,9 @@ address { font-style: normal; }
   font-size: .95rem;
   font-weight: 600;
   letter-spacing: .04em;
-  padding: .5rem .85rem;
+  padding: .5rem .65rem;
   border-radius: var(--radius);
+  white-space: nowrap;
   transition: color var(--transition-fast), background var(--transition-fast);
 }
 .nav__link:hover { color: var(--white); background: rgba(255,255,255,.08); }
