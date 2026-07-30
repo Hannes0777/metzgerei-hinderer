@@ -78,9 +78,9 @@ function initGSAP() {
     const delay = Math.min(parseFloat(el.dataset.delay || 0), 0.3) * 0.5;
     const dir   = el.dataset.animate;
     const init  = { opacity: 0 };
-    if (dir === 'fade-up')    init.y = 30;
-    if (dir === 'fade-right') init.x = -30;
-    if (dir === 'fade-left')  init.x = 30;
+    if (dir === 'fade-up')    init.y = 20;
+    if (dir === 'fade-right') init.x = -20;
+    if (dir === 'fade-left')  init.x = 20;
 
     // gsap.set overrides the CSS opacity:0 rule with an inline style
     gsap.set(el, init);
@@ -97,14 +97,14 @@ function initGSAP() {
     // Stat-Card-Tilt) danach nicht mit einem alten Inline-Wert kollidieren.
     gsap.to(el, {
       opacity: 1, x: 0, y: 0,
-      duration: .6,
+      duration: .45,
       delay,
       ease: 'power3.out',
       clearProps: 'transform',
       onComplete() { el.classList.add('visible'); },
       scrollTrigger: {
         trigger: el,
-        start: 'top 95%',
+        start: 'top 100%',
         once: true
       }
     });
@@ -113,12 +113,12 @@ function initGSAP() {
   /* ── Timeline items ──────────────────────────────────── */
   gsap.from('.timeline-item', {
     x: -30, opacity: 0,
-    duration: .7,
-    stagger: .2,
+    duration: .5,
+    stagger: .12,
     ease: 'power3.out',
     scrollTrigger: {
       trigger: '.ueber-uns__timeline',
-      start: 'top 85%',
+      start: 'top 97%',
       once: true
     }
   });
@@ -126,12 +126,12 @@ function initGSAP() {
   /* ── Quality badges in intro ─────────────────────────── */
   gsap.from('.quality-badge', {
     scale: .8, opacity: 0,
-    duration: .5,
-    stagger: .08,
+    duration: .4,
+    stagger: .06,
     ease: 'back.out(1.7)',
     scrollTrigger: {
       trigger: '.intro-statement__badges',
-      start: 'top 90%',
+      start: 'top 97%',
       once: true
     }
   });
@@ -139,12 +139,12 @@ function initGSAP() {
   /* ── Partyservice features ───────────────────────────── */
   gsap.from('.ps-feature', {
     x: -30, opacity: 0,
-    duration: .7,
-    stagger: .15,
+    duration: .5,
+    stagger: .1,
     ease: 'power3.out',
     scrollTrigger: {
       trigger: '.partyservice__info',
-      start: 'top 80%',
+      start: 'top 97%',
       once: true
     }
   });
@@ -157,10 +157,10 @@ function initGSAP() {
         opacity: 0,
         y: 30,
         rotateX: -40,
-        stagger: .02,
-        duration: .6,
+        stagger: .015,
+        duration: .5,
         ease: 'power3.out',
-        scrollTrigger: { trigger: el, start: 'top 90%', once: true }
+        scrollTrigger: { trigger: el, start: 'top 97%', once: true }
       });
     });
   }
@@ -168,12 +168,12 @@ function initGSAP() {
   /* ── Hours rows ──────────────────────────────────────── */
   gsap.from('.hours-row', {
     x: -20, opacity: 0,
-    duration: .5,
-    stagger: .07,
+    duration: .4,
+    stagger: .05,
     ease: 'power2.out',
     scrollTrigger: {
       trigger: '.hours-grid',
-      start: 'top 85%',
+      start: 'top 97%',
       once: true
     }
   });
@@ -181,12 +181,12 @@ function initGSAP() {
   /* ── Value items ─────────────────────────────────────── */
   gsap.from('.value-item', {
     scale: .9, opacity: 0,
-    duration: .6,
-    stagger: .1,
+    duration: .5,
+    stagger: .08,
     ease: 'back.out(1.5)',
     scrollTrigger: {
       trigger: '.ueber-uns__values',
-      start: 'top 85%',
+      start: 'top 97%',
       once: true
     }
   });
@@ -194,11 +194,11 @@ function initGSAP() {
   /* ── Generation badge spin-in ────────────────────────── */
   gsap.from('.gen-badge', {
     scale: 0, rotation: -180,
-    duration: 1,
+    duration: .7,
     ease: 'back.out(2)',
     scrollTrigger: {
       trigger: '.gen-badge',
-      start: 'top 90%',
+      start: 'top 97%',
       once: true
     }
   });
@@ -206,11 +206,11 @@ function initGSAP() {
   /* ── Form card slide up ──────────────────────────────── */
   gsap.from('.form-card', {
     y: 60, opacity: 0,
-    duration: 1,
+    duration: .7,
     ease: 'power3.out',
     scrollTrigger: {
       trigger: '.form-card',
-      start: 'top 85%',
+      start: 'top 97%',
       once: true
     }
   });

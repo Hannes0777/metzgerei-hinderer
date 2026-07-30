@@ -255,12 +255,17 @@ address { font-style: normal; }
   .nav__menu {
     position: fixed;
     inset: 0;
-    background: rgba(26,10,0,.97);
-    backdrop-filter: blur(16px);
+    /* Volldeckende Farbe statt rgba(...,.97) + backdrop-filter: der Blur
+       komponiert auf manchen Geraeten/Browsern (u.a. WebKit) merklich
+       verzoegert, wodurch das Menu kurz bis sichtbar durchscheinend
+       wirkt und Text darunter (Hero) die vorderen Links unleserlich
+       macht. Ohne Blur ist die Sichtbarkeit sofort garantiert. */
+    background: var(--dark);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    overflow-y: auto;
     opacity: 0;
     pointer-events: none;
     transition: opacity var(--transition);
